@@ -302,3 +302,11 @@ a.tr-direct:hover { box-shadow: 0 0 0 3px rgba(255,255,255,.35); }
 .target-key { display: inline-block; width: 12px; height: 12px; border: 2.5px solid #f59f00; border-radius: 3px; vertical-align: -1px; }
 
 .date-box, .date-box input[type=date] { cursor: pointer; }
+
+/* ───────── visitor counter ───────── */
+.visits { margin-top: 20px; background: var(--mint); border-radius: 12px; padding: 12px; display: grid; gap: 10px; }
+.visits-title { margin: 0; font-weight: 700; font-size: .85rem; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+.visits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.visits-grid div { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; display: grid; }
+.visits-grid b { font-size: 1.15rem; font-weight: 800; color: var(--ink); line-height: 1.2; }
+.visits-grid span { font-size: .72rem; color: var(--muted); }

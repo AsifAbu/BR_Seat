@@ -131,6 +131,16 @@
     </form>
 
     {% if results %}<p class="foot"><a href="/"><i class="fa-solid fa-list"></i> Browse all {{ trains|length }} trains</a></p>{% endif %}
+    <div class="visits" aria-label="Visitors">
+      <p class="visits-title"><i class="fa-solid fa-eye"></i> Visitors</p>
+      <div class="visits-grid">
+        <div><b>{{ '{:,}'.format(visits.today) }}</b><span>Today</span></div>
+        <div><b>{{ '{:,}'.format(visits.week) }}</b><span>This week</span></div>
+        <div><b>{{ '{:,}'.format(visits.month) }}</b><span>This month</span></div>
+        <div><b>{{ '{:,}'.format(visits.year) }}</b><span>This year</span></div>
+      </div>
+    </div>
+
     <p class="foot">Data from the Bangladesh Railway e-ticket API (Shohoz). Seat counts are online quota only.</p>
   </section>
 

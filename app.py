@@ -4,11 +4,11 @@ import re
 import threading
 import time
 import uuid
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
-from flask import Flask, abort, jsonify, render_template, request
+from flask import Flask, abort, after_this_request, jsonify, render_template, request
 
 import shohoz
 
@@ -34,6 +34,66 @@ for t in TRAINS:
                                  {"name": city, "label": city.replace("_", " "), "trains": 0})
         st["trains"] += 1
 STATION_LIST = sorted(STATIONS.values(), key=lambda s: s["label"])
+
+
+# ── Visitor counter ──────────────────────────────────────────────────────────
+# Counts live in a plain text file, one line per period: "<period> <key> <count>".
+# A cookie remembers which day/week/month/year this browser was last counted in,
+# so each count is of unique browsers per period without storing any IDs.
+VISITS_PATH = Path(__file__).parent / "data" / "visits.txt"
+VISITS_LOCK = threading.Lock()
+VISIT_COOKIE = "brv"
+BD_TZ = timezone(timedelta(hours=6))  # Bangladesh has no daylight saving
+PERIODS = ("today", "week", "month", "year", "total")
+
+
+def period_keys():
+    now = datetime.now(BD_TZ).date()
+    week_start = now - timedelta(days=(now.weekday() - 5) % 7)  # weeks run Saturday-Friday
+    return {"today": now.isoformat(), "week": week_start.isoformat(),
+            "month": now.strftime("%Y-%m"), "year": str(now.year), "total": "-"}
+
+
+def read_visits():
+    counts = {}
+    try:
+        for line in VISITS_PATH.read_text().splitlines():
+            parts = line.split()
+            if len(parts) == 3 and parts[0] in PERIODS and not line.startswith("#"):
+                counts[parts[0]] = (parts[1], int(parts[2]))
+    except (OSError, ValueError):
+        pass
+    return counts
+
+
+def write_visits(counts):
+    lines = ["# BR Seat visitor counts (Bangladesh time). Updated automatically."]
+    lines += [f"{p:<6} {counts[p][0]:<11} {counts[p][1]}" for p in PERIODS]
+    tmp = VISITS_PATH.with_suffix(".tmp")
+    tmp.write_text("\n".join(lines) + "\n")
+    tmp.replace(VISITS_PATH)
+
+
+def record_visit(cookie):
+    """Count this browser once per period; returns (counts, new cookie value)."""
+    keys = period_keys()
+    seen = dict(zip(PERIODS, (cookie or "").split("|"))) if cookie else {}
+    with VISITS_LOCK:
+        stored = read_visits()
+        counts = {}
+        for p in PERIODS:
+            key, n = stored.get(p, (keys[p], 0))
+            if key != keys[p]:  # a new day/week/month/year started: reset that line
+                key, n = keys[p], 0
+            if seen.get(p) != keys[p]:
+                n += 1
+            counts[p] = (key, n)
+        if counts != stored:
+            try:
+                write_visits(counts)
+            except OSError:
+                pass  # never break the page over the counter
+    return {p: counts[p][1] for p in PERIODS}, "|".join(keys[p] for p in PERIODS)
 
 
 def env_credentials():
@@ -181,8 +241,16 @@ def route_search(form, creds, ctx):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    visits, cookie = record_visit(request.cookies.get(VISIT_COOKIE))
+
+    @after_this_request
+    def remember_visit(response):
+        response.set_cookie(VISIT_COOKIE, cookie, max_age=400 * 86400, httponly=True, samesite="Lax")
+        return response
+
     form = request.form or request.args
     ctx = {
+        "visits": visits,
         "form": form,
         "mode": form.get("mode", "train"),
         "today": datetime.now().strftime("%Y-%m-%d"),
