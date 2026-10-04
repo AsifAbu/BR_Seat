@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#006a4e"/>
+  <!-- train front -->
+  <rect x="16" y="9" width="32" height="38" rx="9" fill="#fff"/>
+  <rect x="21" y="15" width="22" height="12" rx="3" fill="#006a4e"/>
+  <circle cx="24" cy="37" r="3.2" fill="#006a4e"/>
+  <circle cx="40" cy="37" r="3.2" fill="#006a4e"/>
+  <!-- wheels/rails -->
+  <path d="M22 47 15 56M42 47l7 9" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Bangladesh red dot accent -->
+  <circle cx="32" cy="21" r="3.6" fill="#f42a41"/>
+</svg>
