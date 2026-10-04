@@ -1,3 +1,5 @@
+import hashlib
+import hmac
 import json
 import os
 import re
@@ -8,12 +10,43 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
-from flask import Flask, abort, after_this_request, jsonify, render_template, request
+from flask import Flask, Response, abort, after_this_request, jsonify, render_template, request
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 import shohoz
 
 load_dotenv()
 app = Flask(__name__)
+# Behind a hosting proxy (Render etc.) trust its X-Forwarded-Proto so we know
+# when the visitor is on HTTPS (used for the Secure cookie flag).
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1)
+
+# Optional site password (HTTP Basic auth, any username). Set it when the app
+# is reachable by others, especially if SHOHOZ_* credentials are in the env.
+APP_PASSWORD = os.getenv("APP_PASSWORD", "")
+MAX_RUNNING_JOBS = 5  # each job is a thread; refuse more so the server can't be flooded
+
+
+def debug_enabled():
+    return os.getenv("FLASK_DEBUG", "") == "1"
+
+
+@app.before_request
+def guard():
+    # 1) optional password for the whole site except static assets
+    if APP_PASSWORD and request.endpoint != "static":
+        auth = request.authorization
+        if not auth or not hmac.compare_digest(auth.password or "", APP_PASSWORD):
+            return Response("Password required.", 401,
+                            {"WWW-Authenticate": 'Basic realm="BR Seat Matrix"'})
+    # 2) CSRF: block state-changing requests sent from other websites. Browsers
+    # send Sec-Fetch-Site and/or Origin on cross-site form posts and fetches.
+    if request.method == "POST":
+        if request.headers.get("Sec-Fetch-Site") == "cross-site":
+            abort(403)
+        origin = request.headers.get("Origin")
+        if origin and origin != "null" and origin.rstrip("/") != request.host_url.rstrip("/"):
+            abort(403)
 
 # Seat-matrix jobs run in background threads (a long route takes minutes under
 # the API rate limit). Finished jobs double as a short-lived cache.
@@ -128,8 +161,20 @@ def run_job(job, work):
     job["finished"] = time.time()
 
 
+class Busy(Exception):
+    pass
+
+
+def login_id(creds):
+    """Short fingerprint of a login, so different users never share (or can
+    cancel) each other's jobs. The credentials themselves aren't stored in the key."""
+    raw = "|".join(f"{k}:{creds.get(k, '')}" for k in ("Authorization", "X-Device-Id", "X-Device-Key"))
+    return hashlib.sha256(raw.encode()).hexdigest()[:16]
+
+
 def start_job(key, total, work, render):
-    """Run work(progress) in the background; reuse a live/recent job with the same key."""
+    """Run work(progress) in the background; reuse a live/recent job with the same key.
+    Raises Busy when MAX_RUNNING_JOBS are already running."""
     with JOBS_LOCK:
         for jid, job in list(JOBS.items()):
             if job.get("finished") and time.time() - job["finished"] > CACHE_TTL:
@@ -137,12 +182,17 @@ def start_job(key, total, work, render):
         for jid, job in JOBS.items():
             if job["key"] == key and not job.get("error"):
                 return jid
+        if sum(1 for job in JOBS.values() if not job.get("finished")) >= MAX_RUNNING_JOBS:
+            raise Busy()
         jid = uuid.uuid4().hex
         JOBS[jid] = {"key": key, "render": render, "done": 0, "total": total, "waiting": False,
                      "cancel": threading.Event()}
     threading.Thread(target=run_job, args=(JOBS[jid], work), daemon=True).start()
     return jid
 
+
+BUSY_MSG = (f"The server is busy with {MAX_RUNNING_JOBS} searches already. "
+            "Try again in a minute, or cancel one you started.")
 
 WINDOW_DEFAULTS = {"fb": 3, "fa": 3, "tb": 5, "ta": 5}  # From before/after, To before/after
 
@@ -194,8 +244,11 @@ def train_search(form, creds, ctx):
 
         full = bool(form.get("full"))
         n = len(route["stops"])
-        job_id = start_job(("train", model, journey_date, full), n * (n - 1) // 2,
-                           lambda p, c: shohoz.build_matrix(model, route, creds, p, full, c), render)
+        try:
+            job_id = start_job(("train", login_id(creds), model, journey_date, full), n * (n - 1) // 2,
+                               lambda p, c: shohoz.build_matrix(model, route, creds, p, full, c), render)
+        except Busy:
+            matrix_error = BUSY_MSG
     return render_template("index.html", results="train", route=route, job_id=job_id,
                            matrix_error=matrix_error, **ctx)
 
@@ -231,10 +284,13 @@ def route_search(form, creds, ctx):
 
         full = bool(form.get("full"))
         window = parse_window(form)
-        job_id = start_job(("route", src["name"], dst["name"], journey_date, seat, full, window), 1,
-                           lambda p, c: shohoz.search_route(src["name"], dst["name"], journey_date, seat,
-                                                            creds, p, full, c, window),
-                           render)
+        try:
+            job_id = start_job(("route", login_id(creds), src["name"], dst["name"], journey_date, seat, full, window), 1,
+                               lambda p, c: shohoz.search_route(src["name"], dst["name"], journey_date, seat,
+                                                                creds, p, full, c, window),
+                               render)
+        except Busy:
+            matrix_error = BUSY_MSG
     return render_template("index.html", results="route", query=query, job_id=job_id,
                            matrix_error=matrix_error, **ctx)
 
@@ -245,7 +301,8 @@ def index():
 
     @after_this_request
     def remember_visit(response):
-        response.set_cookie(VISIT_COOKIE, cookie, max_age=400 * 86400, httponly=True, samesite="Lax")
+        response.set_cookie(VISIT_COOKIE, cookie, max_age=400 * 86400, httponly=True, samesite="Lax",
+                            secure=request.is_secure)
         return response
 
     form = request.form or request.args
@@ -288,5 +345,7 @@ def job_cancel(job_id):
 
 
 if __name__ == "__main__":
-    # threaded: the progress poll must be served while a job is running
-    app.run(debug=True, threaded=True, port=int(os.getenv("PORT", 5000)))
+    # threaded: the progress poll must be served while a job is running.
+    # Debug (auto-reload + Werkzeug debugger) only when FLASK_DEBUG=1; the
+    # debugger can run code, and auto-reload kills running searches on edits.
+    app.run(debug=debug_enabled(), threaded=True, port=int(os.getenv("PORT", 5000)))

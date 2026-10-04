@@ -79,7 +79,7 @@ combobox($('#train'), $('#train-options'), {
     : all.filter(t => words(q).every(w => `${t.name} ${t.origin} ${t.destination}`.toLowerCase().includes(w))),
   value: t => t.name,
   render: t => `
-    <span class="opt-main"><b>${esc(t.short_name)}</b><span class="tc-code">${t.code}</span></span>
+    <span class="opt-main"><b>${esc(t.short_name)}</b><span class="tc-code">${esc(t.code)}</span></span>
     <span class="opt-route"><i class="fa-solid fa-location-dot from"></i>${esc(t.origin)}
       <i class="fa-solid fa-arrow-right-long"></i><i class="fa-solid fa-location-dot to"></i>${esc(t.destination)}
       <span class="opt-time">${esc(t.departure)}</span></span>`,
@@ -107,12 +107,29 @@ $('#swap').addEventListener('click', () => {
   [$('#from').value, $('#to').value] = [$('#to').value, $('#from').value];
 });
 
-// ── Submit: validate stations, remember login, show spinner ──
+// ── Login storage ──
+// "Remember" keeps the pasted login in localStorage (survives closing the
+// browser). Otherwise it lives in sessionStorage: kept while this tab is open
+// (each search reloads the page) and gone when the tab closes.
 const tokenInput = $('#token');
-try {
-  tokenInput.value = localStorage.getItem('shohozToken') || '';
-  if (tokenInput.value) $('#login-state').textContent = 'saved in this browser';
-} catch (e) {}
+const remember = $('#remember-login');
+const TOKEN_KEY = 'shohozToken';
+const store = {
+  get(area) { try { return window[area].getItem(TOKEN_KEY) || ''; } catch (e) { return ''; } },
+  set(area, v) { try { v ? window[area].setItem(TOKEN_KEY, v) : window[area].removeItem(TOKEN_KEY); } catch (e) {} },
+};
+function showLoginState() {
+  $('#login-state').textContent = !tokenInput.value.trim() ? 'optional if .env is filled'
+    : remember.checked ? 'saved in this browser' : 'kept until this tab closes';
+}
+const saved = store.get('localStorage');
+remember.checked = Boolean(saved);  // people who saved it before keep that behaviour
+tokenInput.value = saved || store.get('sessionStorage');
+showLoginState();
+remember.addEventListener('change', () => {
+  if (!remember.checked) store.set('localStorage', '');  // forget immediately
+  showLoginState();
+});
 
 form.addEventListener('submit', e => {
   const err = $('#form-error');
@@ -124,7 +141,9 @@ form.addEventListener('submit', e => {
     else if ($('#from').value.trim().toLowerCase() === $('#to').value.trim().toLowerCase()) msg = 'From and To must be different.';
     if (msg) { e.preventDefault(); err.textContent = msg; err.hidden = false; return; }
   }
-  try { localStorage.setItem('shohozToken', tokenInput.value.trim()); } catch (e) {}
+  const v = tokenInput.value.trim();
+  store.set('localStorage', remember.checked ? v : '');
+  store.set('sessionStorage', remember.checked ? '' : v);
   $('#loading').hidden = false;
 });
 // Back/forward cache can restore the page with the spinner still showing.

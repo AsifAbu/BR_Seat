@@ -310,3 +310,4 @@ a.tr-direct:hover { box-shadow: 0 0 0 3px rgba(255,255,255,.35); }
 .visits-grid div { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; display: grid; }
 .visits-grid b { font-size: 1.15rem; font-weight: 800; color: var(--ink); line-height: 1.2; }
 .visits-grid span { font-size: .72rem; color: var(--muted); }
+.login-box .remember { margin-top: 8px; }

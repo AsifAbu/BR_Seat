@@ -118,6 +118,10 @@
         <summary><i class="fa-solid fa-key"></i> Login <small id="login-state">optional if .env is filled</small><i class="fa-solid fa-chevron-down chev end"></i></summary>
         <p class="hint">DevTools → Network → <code>search-trips-v2</code> → Copy as cURL, then paste here.</p>
         <textarea name="token" id="token" rows="3" spellcheck="false" placeholder="curl --url 'https://railspaapi.shohoz.com/…' -H 'Authorization: Bearer …' -H 'X-Device-Key: …' -H 'X-Device-Id: …'"></textarea>
+        <label class="check remember">
+          <input type="checkbox" id="remember-login">
+          <span>Remember login on this browser <small>Off: forgotten when this tab closes. Don't tick on shared computers.</small></span>
+        </label>
       </details>
 
       <p class="alert" id="form-error" hidden></p>
