@@ -1,0 +1,54 @@
+{% from "_macros.html" import route_timeline, matrix_table %}
+{# One accent per train so neighbouring cards are easy to tell apart; all sit on the page's palette. #}
+{% set accents = ["#006a4e", "#1864ab", "#7048e8", "#c2255c", "#0c8599", "#d9480f", "#5c940d", "#862e9c"] %}
+{% if scan_note %}<p class="meta scan-note"><i class="fa-solid fa-filter"></i> {{ scan_note }}</p>{% endif %}
+{% for t in trains %}
+<article class="card train-result" style="--accent: {{ accents[loop.index0 % accents|length] }}">
+  <header class="tr-head">
+    <div class="tr-title">
+      <i class="fa-solid fa-train-subway"></i>
+      <h3>{{ t.route.train_name }}</h3>
+    </div>
+    <div class="tr-times">
+      <span><small>{{ t.from|replace('_', ' ') }}</small><b>{{ t.departure }}</b></span>
+      <span class="tr-arrow"><i class="fa-solid fa-arrow-right-long"></i><small>{{ t.travel_time }}</small></span>
+      <span><small>{{ t.to|replace('_', ' ') }}</small><b>{{ t.arrival }}</b></span>
+    </div>
+    {% if t.direct %}
+      {% if t.direct.seats > 0 %}
+      <a class="tr-direct" href="{{ t.direct.buy }}" target="_blank" rel="noopener">
+        <b>{{ t.direct.seats }}</b> {{ query.seat }} seats · ৳{{ t.direct.fare }} <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+      {% else %}
+      <span class="tr-direct sold">{{ query.seat }} sold out end-to-end · ৳{{ t.direct.fare }}</span>
+      {% endif %}
+    {% endif %}
+  </header>
+
+  <details class="toggle tr-route">
+    <summary>
+      <i class="fa-solid fa-route"></i>
+      <span class="when-closed">View Train Route</span>
+      <span class="when-open">Hide Train Route</span>
+      <i class="fa-solid fa-chevron-down chev end"></i>
+    </summary>
+    {{ route_timeline(t.route, t.span, t.board, t.alight) }}
+  </details>
+
+  <div class="tr-matrix">
+    {% if t.matrix %}
+      <p class="meta">
+        <span class="pill seat"><i class="fa-solid fa-chair"></i> {{ query.seat }}</span>
+        {{ t.matrix.total_seats }} seats across {{ t.matrix.stations|length }} stations ·
+        <span class="target-key"></span> {{ t.from|replace('_', ' ') }} → {{ t.to|replace('_', ' ') }} · click a cell to buy
+      </p>
+      {{ matrix_table(t.matrix, (t.from, t.to)) }}
+    {% else %}
+      <p class="meta">No intermediate {{ query.seat }} segments are on sale for this train.</p>
+    {% endif %}
+  </div>
+</article>
+{% endfor %}
+{% if hidden %}
+<p class="meta center">{{ hidden }} more train{{ 's' if hidden > 1 }} run this route but don't sell {{ query.seat }}.</p>
+{% endif %}

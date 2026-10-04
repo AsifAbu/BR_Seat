@@ -1,0 +1,9 @@
+{% from "_macros.html" import matrix_table %}
+{% if scan_note %}<p class="meta scan-note"><i class="fa-solid fa-filter"></i> {{ scan_note }}</p>{% endif %}
+{% for m in matrices %}
+<div class="card matrix-card">
+  <div class="pill title"><i class="fa-solid fa-chair"></i> Seat Type: {{ m.seat_type }}</div>
+  <p class="meta">{{ journey_date.strftime('%a, %d %b %Y') }} · {{ m.total_seats }} seats across {{ m.stations|length }} stations · click a cell to buy</p>
+  {{ matrix_table(m) }}
+</div>
+{% endfor %}

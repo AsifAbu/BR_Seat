@@ -1,0 +1,78 @@
+{# Route timeline. span=(a, b) highlights the boarding/alighting stops of a route search. #}
+{% macro route_timeline(route, span=None, board=None, alight=None) %}
+<div class="route-body">
+  <div class="pill title"><i class="fa-solid fa-train-subway"></i> {{ route.train_name }}</div>
+
+  <div class="days">
+    <strong>Runs on:</strong>
+    {% for d in route.days %}
+      <span class="day {% if d.off %}off{% endif %}">{{ d.day }}{% if d.off %}<sup>(off)</sup>{% endif %}</span>
+    {% endfor %}
+  </div>
+
+  <ol class="timeline">
+    {% for s in route.stops %}
+    {% set i = loop.index0 %}
+    <li class="{% if s.is_origin %}origin{% elif s.is_destination %}dest{% endif %}
+               {% if span and (i < span[0] or i > span[1]) %}outside{% endif %}">
+      <span class="dot"><i class="fa-solid fa-location-dot"></i></span>
+      <div class="stop">
+        <div class="stop-head">
+          <h3>{{ s.city|replace('_', ' ') }}</h3>
+          {% if not s.is_origin and not s.is_destination %}
+            <span class="date {% if s.date_changed %}next{% endif %}">{{ s.date.strftime('%-d %b') }}</span>
+          {% endif %}
+          {% if i == board %}<span class="tag board">Board</span>{% endif %}
+          {% if i == alight %}<span class="tag alight">Alight</span>{% endif %}
+          {% if s.is_origin %}<span class="tag origin">Origin</span>{% endif %}
+          {% if s.is_destination %}<span class="tag dest">Destination</span>{% endif %}
+        </div>
+        <div class="facts">
+          <div><b>Arrival:</b> {{ s.arrival or '———' }}</div>
+          <div><b>Departure:</b> {{ s.departure or '———' }}</div>
+          <div><b>Halt:</b> {{ s.halt or '———' }}</div>
+          <div><b>Duration:</b> {{ s.duration or '———' }}</div>
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+
+  {% if route.total_duration %}
+  <div class="pill total"><i class="fa-solid fa-clock"></i> Total Duration: {{ route.total_duration }}</div>
+  {% endif %}
+</div>
+{% endmacro %}
+
+
+{# Seat matrix table: rows are boarding stations, columns alighting stations. #}
+{% macro matrix_table(m, target=None) %}
+{% set cols = m.col_stations %}
+<div class="scroll">
+  <table class="matrix" style="--cols: {{ cols|length }}">
+    <colgroup><col class="row-head">{% for st in cols %}<col>{% endfor %}</colgroup>
+    <thead>
+      <tr><th class="corner">From ↓ &nbsp;To →</th>{% for st in cols %}<th><span>{{ st|replace('_', ' ') }}</span></th>{% endfor %}</tr>
+    </thead>
+    <tbody>
+      {% for row in m.rows %}
+      {% set from = m.row_stations[loop.index0] %}
+      <tr>
+        <th>{{ from|replace('_', ' ') }}</th>
+        {% for c in row %}
+          <td{% if target and from == target[0] and cols[loop.index0] == target[1] %} class="target"{% endif %}>{% if c %}
+            {% if c.seats > 0 %}
+            <a class="cell" href="{{ c.buy }}" target="_blank" rel="noopener" title="Buy {{ from }} → {{ cols[loop.index0] }} · {{ c.seats }} seats · ৳{{ c.fare }}">
+            {% else %}
+            <span class="cell empty" title="{{ from }} → {{ cols[loop.index0] }} · sold out">
+            {% endif %}
+              <b>{{ c.seats }}</b><small>৳{{ c.fare }}</small>
+            {% if c.seats > 0 %}</a>{% else %}</span>{% endif %}
+          {% endif %}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endmacro %}

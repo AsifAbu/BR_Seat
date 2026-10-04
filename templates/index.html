@@ -1,0 +1,235 @@
+{% from "_macros.html" import route_timeline %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BR Seat Matrix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="layout {% if results %}has-result{% else %}home{% endif %}">
+
+  <!-- ───────────── Search panel ───────────── -->
+  <section class="card search">
+    <h1><i class="fa-solid fa-train-subway"></i> BR Train Seat Matrix</h1>
+
+    <form method="post" id="search-form">
+      <input type="hidden" name="mode" id="mode" value="{{ mode }}">
+
+      <!-- Mode 1: a specific train -->
+      <details class="mode" data-mode="train" {% if mode != 'route' %}open{% endif %}>
+        <summary>
+          <span class="mode-icon"><i class="fa-solid fa-train"></i></span>
+          <span class="mode-text"><b>Search by Train</b><small>Train name &amp; date · all seat types</small></span>
+          <i class="fa-solid fa-chevron-down chev"></i>
+        </summary>
+        <div class="mode-body">
+          <div class="field">
+            <label for="train">Train Name</label>
+            <div class="combo">
+              <div class="input"><i class="fa-solid fa-train"></i>
+                <input id="train" name="train" required placeholder="Search name, code or station…"
+                       value="{{ form.get('train', '') }}" autocomplete="off"
+                       role="combobox" aria-expanded="false" aria-controls="train-options" aria-autocomplete="list">
+                <i class="fa-solid fa-chevron-down combo-chev"></i>
+              </div>
+              <ul class="combo-list" id="train-options" role="listbox" hidden></ul>
+            </div>
+          </div>
+          <label class="field">
+            <span>Date of Journey</span>
+            <div class="input"><i class="fa-solid fa-calendar-days"></i>
+              <input type="date" name="date" id="date" required min="{{ today }}" value="{{ form.get('date', '') }}">
+            </div>
+          </label>
+        </div>
+      </details>
+
+      <!-- Mode 2: every train between two stations -->
+      <details class="mode" data-mode="route" {% if mode == 'route' %}open{% endif %}>
+        <summary>
+          <span class="mode-icon"><i class="fa-solid fa-route"></i></span>
+          <span class="mode-text"><b>Search by Route</b><small>From, To, date &amp; one seat type · all trains</small></span>
+          <i class="fa-solid fa-chevron-down chev"></i>
+        </summary>
+        <div class="mode-body">
+          <div class="field stations">
+            <label for="from">From</label>
+            <div class="combo">
+              <div class="input"><i class="fa-solid fa-location-dot from"></i>
+                <input id="from" name="from" required placeholder="Boarding station…" value="{{ form.get('from', '') }}"
+                       autocomplete="off" role="combobox" aria-expanded="false" aria-controls="from-options" aria-autocomplete="list">
+              </div>
+              <ul class="combo-list" id="from-options" role="listbox" hidden></ul>
+            </div>
+            <button type="button" class="swap" id="swap" title="Swap From and To" aria-label="Swap From and To">
+              <i class="fa-solid fa-right-left fa-rotate-90"></i>
+            </button>
+            <label for="to">To</label>
+            <div class="combo">
+              <div class="input"><i class="fa-solid fa-location-dot to"></i>
+                <input id="to" name="to" required placeholder="Destination station…" value="{{ form.get('to', '') }}"
+                       autocomplete="off" role="combobox" aria-expanded="false" aria-controls="to-options" aria-autocomplete="list">
+              </div>
+              <ul class="combo-list" id="to-options" role="listbox" hidden></ul>
+            </div>
+          </div>
+          <div class="field-row">
+            <label class="field">
+              <span>Date of Journey</span>
+              <div class="input"><i class="fa-solid fa-calendar-days"></i>
+                <input type="date" name="rdate" id="rdate" required min="{{ today }}" value="{{ form.get('rdate', '') }}">
+              </div>
+            </label>
+            <label class="field">
+              <span>Seat Type</span>
+              <div class="input"><i class="fa-solid fa-chair"></i>
+                <select name="seat" id="seat" required>
+                  {% for st in seat_types %}
+                  <option value="{{ st }}" {% if form.get('seat', 'S_CHAIR') == st %}selected{% endif %}>{{ st }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </label>
+          </div>
+          <div class="minimize">
+            <label class="check">
+              <input type="checkbox" name="minimize" id="minimize" {% if minimize_on %}checked{% endif %}>
+              <span>Minimize search <small>Only check stations near From and To (far fewer API calls)</small></span>
+            </label>
+            <div class="window" id="window" {% if not minimize_on %}hidden{% endif %}>
+              <span class="win-label"><i class="fa-solid fa-location-dot from"></i> From</span>
+              <label>before <input type="number" name="fb" min="0" max="10" value="{{ window.fb }}"></label>
+              <label>after <input type="number" name="fa" min="0" max="10" value="{{ window.fa }}"></label>
+              <span class="win-label"><i class="fa-solid fa-location-dot to"></i> To</span>
+              <label>before <input type="number" name="tb" min="0" max="10" value="{{ window.tb }}"></label>
+              <label>after <input type="number" name="ta" min="0" max="10" value="{{ window.ta }}"></label>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="login-box">
+        <summary><i class="fa-solid fa-key"></i> Login <small id="login-state">optional if .env is filled</small><i class="fa-solid fa-chevron-down chev end"></i></summary>
+        <p class="hint">DevTools → Network → <code>search-trips-v2</code> → Copy as cURL, then paste here.</p>
+        <textarea name="token" id="token" rows="3" spellcheck="false" placeholder="curl --url 'https://railspaapi.shohoz.com/…' -H 'Authorization: Bearer …' -H 'X-Device-Key: …' -H 'X-Device-Id: …'"></textarea>
+      </details>
+
+      <p class="alert" id="form-error" hidden></p>
+      {% if error %}<p class="alert"><i class="fa-solid fa-circle-exclamation"></i> {{ error }}</p>{% endif %}
+
+      <button type="submit" class="btn"><i class="fa-solid fa-table-cells"></i> View Seat Matrix</button>
+      <label class="check" title="Normally pairs that had no seat quota on earlier scans are skipped">
+        <input type="checkbox" name="full" {% if form.get('full') %}checked{% endif %}>
+        <span>Re-check every station pair <small>Slower; use if seat quotas changed</small></span>
+      </label>
+    </form>
+
+    {% if results %}<p class="foot"><a href="/"><i class="fa-solid fa-list"></i> Browse all {{ trains|length }} trains</a></p>{% endif %}
+    <p class="foot">Data from the Bangladesh Railway e-ticket API (Shohoz). Seat counts are online quota only.</p>
+  </section>
+
+  {% if not results %}
+  <!-- ───────────── All trains ───────────── -->
+  <section class="card train-list">
+    <div class="list-head">
+      <h2><i class="fa-solid fa-list"></i> All Intercity Trains <span class="count" id="train-count">{{ trains|length }}</span></h2>
+      <div class="input filter"><i class="fa-solid fa-magnifying-glass"></i>
+        <input id="train-filter" placeholder="Filter by name, code or station…" autocomplete="off">
+      </div>
+    </div>
+    <div class="train-grid" id="train-grid">
+      {% for t in trains %}
+      <button type="button" class="train-card" data-name="{{ t.name }}"
+              data-search="{{ (t.name ~ ' ' ~ t.origin ~ ' ' ~ t.destination)|lower }}">
+        <div class="tc-head">
+          <span class="tc-name">{{ t.short_name }}</span>
+          <span class="tc-code">{{ t.code }}</span>
+        </div>
+        <div class="tc-route">
+          <span class="tc-stop from"><i class="fa-solid fa-location-dot"></i><span><small>From</small>{{ t.origin }}</span></span>
+          <span class="tc-line"><i class="fa-solid fa-train"></i></span>
+          <span class="tc-stop to"><i class="fa-solid fa-location-dot"></i><span><small>To</small>{{ t.destination }}</span></span>
+        </div>
+        <div class="tc-foot">
+          <span><i class="fa-regular fa-clock"></i> {{ t.departure }}</span>
+          {% if t.off %}<span class="tc-off">Off: {{ t.off|join(', ') }}</span>{% else %}<span class="tc-daily">Runs daily</span>{% endif %}
+        </div>
+      </button>
+      {% endfor %}
+    </div>
+    <p class="meta empty-note" id="train-empty" hidden>No train matches that filter.</p>
+  </section>
+  {% endif %}
+
+  <!-- ───────────── Results ───────────── -->
+  {% if results %}
+  <section class="results">
+    {% if results == 'train' %}
+    <details class="card toggle route">
+      <summary>
+        <i class="fa-solid fa-route"></i>
+        <span class="when-closed">Expand to view Train Route</span>
+        <span class="when-open">Collapse to hide Train Route</span>
+        <i class="fa-solid fa-chevron-down chev end"></i>
+      </summary>
+      {{ route_timeline(route) }}
+    </details>
+    {% else %}
+    <div class="card route-summary">
+      <span class="rs-stop"><i class="fa-solid fa-location-dot from"></i> {{ query.from }}</span>
+      <i class="fa-solid fa-arrow-right-long"></i>
+      <span class="rs-stop"><i class="fa-solid fa-location-dot to"></i> {{ query.to }}</span>
+      <span class="rs-meta"><i class="fa-solid fa-calendar-days"></i> {{ query.date.strftime('%a, %d %b %Y') }}</span>
+      <span class="pill seat"><i class="fa-solid fa-chair"></i> {{ query.seat }}</span>
+    </div>
+    {% endif %}
+
+    {% if matrix_error %}
+      <p class="card alert">{{ matrix_error }}</p>
+    {% endif %}
+
+    <div id="matrices">
+      {% if job_id %}
+      <div class="card progress-card" id="progress" data-job="{{ job_id }}">
+        <div class="progress-head">
+          <p><i class="fa-solid fa-table-cells"></i>
+            {% if results == 'route' %}Finding trains and checking every segment between your stations…
+            {% else %}Checking seats on every station-to-station segment…{% endif %}</p>
+          <button type="button" class="btn-cancel" id="cancel-job"><i class="fa-solid fa-xmark"></i> Cancel</button>
+        </div>
+        <div class="bar"><span id="bar-fill"></span></div>
+        <p class="meta" id="progress-text">Starting…</p>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+</main>
+
+<dialog class="confirm" id="cancel-dialog" aria-labelledby="cancel-title">
+  <form method="dialog">
+    <h3 id="cancel-title"><i class="fa-solid fa-triangle-exclamation"></i> Cancel this request?</h3>
+    <p>Frequent requests may cause your account to be <b>locked out for 10 minutes</b>.
+       Searches already made still count, so wait a minute before starting a new one.</p>
+    <div class="confirm-actions">
+      <button value="keep" class="btn-ghost">Keep loading</button>
+      <button value="cancel" class="btn-danger">Cancel request</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="loading" id="loading" hidden>
+  <div class="spinner"></div>
+  <p>Loading…</p>
+</div>
+
+<script id="trains-data" type="application/json">{{ trains|tojson }}</script>
+<script id="stations-data" type="application/json">{{ stations|tojson }}</script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

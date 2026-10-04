@@ -1,0 +1,857 @@
+{
+  "702": {
+    "train": "SUBORNO EXPRESS (702)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Chattogram": true},
+      "Biman Bandar": {"Chattogram": true}
+    }
+  },
+  "704": {
+    "train": "MAHANAGAR PROVATI (704)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Narsingdi": true, "Bhairab Bazar": true, "Brahmanbaria": true, "Akhaura": true, "Quasba": true, "Cumilla": true, "Laksam": true, "Gunabati": true, "Feni": true, "Chattogram": true},
+      "Biman Bandar": {"Narsingdi": true, "Bhairab Bazar": true, "Brahmanbaria": true, "Akhaura": true, "Quasba": false, "Cumilla": true, "Laksam": false, "Gunabati": false, "Feni": false, "Chattogram": true},
+      "Narsingdi": {"Bhairab Bazar": false, "Brahmanbaria": false, "Akhaura": false, "Quasba": false, "Cumilla": false, "Laksam": false, "Gunabati": false, "Feni": false, "Chattogram": true},
+      "Bhairab Bazar": {"Brahmanbaria": false, "Akhaura": false, "Quasba": false, "Cumilla": true, "Laksam": false, "Gunabati": false, "Feni": true, "Chattogram": true},
+      "Brahmanbaria": {"Akhaura": false, "Quasba": false, "Cumilla": true, "Laksam": true, "Gunabati": false, "Feni": true, "Chattogram": true},
+      "Akhaura": {"Quasba": false, "Cumilla": true, "Laksam": false, "Gunabati": false, "Feni": false, "Chattogram": true},
+      "Quasba": {"Cumilla": false, "Laksam": false, "Gunabati": false, "Feni": false, "Chattogram": true},
+      "Cumilla": {"Laksam": false, "Gunabati": false, "Feni": false, "Chattogram": true},
+      "Laksam": {"Gunabati": false, "Feni": false, "Chattogram": true},
+      "Gunabati": {"Feni": false, "Chattogram": false},
+      "Feni": {"Chattogram": true}
+    }
+  },
+  "705": {
+    "train": "EKOTA EXPRESS (705)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Tangail": true, "Ibrahimabad": true, "SH M Monsur Ali": true, "Ullapara": true, "Ishwardi Bypass": true, "Natore": true, "Santahar": true, "Akkelpur": true, "Joypurhat": true, "Panchbibi": true, "Birampur": true, "Fulbari": true, "Parbatipur": true, "Chirirbandar": true, "Dinajpur": true, "Setabganj": true, "Pirganj": true, "Thakurgaon Road": true, "Ruhia": true, "Kismat": true, "Panchagarh": true},
+      "Biman Bandar": {"Joydebpur": false, "Tangail": false, "Ibrahimabad": true, "SH M Monsur Ali": false, "Ullapara": true, "Ishwardi Bypass": false, "Natore": true, "Santahar": false, "Akkelpur": false, "Joypurhat": true, "Parbatipur": false, "Dinajpur": true, "Panchagarh": true},
+      "Joydebpur": {"Tangail": false, "Ibrahimabad": false, "SH M Monsur Ali": false, "Ullapara": false, "Ishwardi Bypass": false, "Natore": false, "Santahar": false, "Akkelpur": false, "Joypurhat": false, "Dinajpur": true, "Thakurgaon Road": true, "Panchagarh": true},
+      "Tangail": {"Ibrahimabad": false, "SH M Monsur Ali": false, "Ullapara": false, "Ishwardi Bypass": true, "Natore": false, "Santahar": true, "Akkelpur": false, "Joypurhat": false, "Dinajpur": true, "Thakurgaon Road": true, "Panchagarh": true},
+      "Ibrahimabad": {"SH M Monsur Ali": false, "Ullapara": true, "Ishwardi Bypass": false, "Natore": false, "Santahar": true, "Akkelpur": false, "Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "SH M Monsur Ali": {"Ullapara": false, "Ishwardi Bypass": true, "Natore": true, "Santahar": true, "Akkelpur": false, "Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Ullapara": {"Ishwardi Bypass": false, "Natore": true, "Santahar": true, "Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Ishwardi Bypass": {"Natore": true, "Santahar": true, "Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Natore": {"Santahar": true, "Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Santahar": {"Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": true, "Fulbari": false, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": true, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Akkelpur": {"Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Joypurhat": {"Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": true, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Panchbibi": {"Birampur": false, "Fulbari": false, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Birampur": {"Fulbari": false, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Fulbari": {"Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Parbatipur": {"Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": true, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Chirirbandar": {"Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Dinajpur": {"Setabganj": true, "Pirganj": true, "Thakurgaon Road": true, "Ruhia": true, "Kismat": false, "Panchagarh": true},
+      "Setabganj": {"Pirganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Pirganj": {"Thakurgaon Road": true, "Ruhia": true, "Kismat": false, "Panchagarh": true},
+      "Thakurgaon Road": {"Ruhia": true, "Kismat": false, "Panchagarh": true},
+      "Ruhia": {"Kismat": false, "Panchagarh": true},
+      "Kismat": {"Panchagarh": false},
+      "biman bandar": {"birampur": false, "chirirbandar": false, "dinajpur": true, "fulbari": false, "kismat": false, "panchagarh": true, "panchbibi": false, "parbatipur": false, "pirganj": false, "ruhia": false, "setabganj": false, "thakurgaon road": false},
+      "dhaka": {"birampur": true, "chirirbandar": true, "dinajpur": true, "fulbari": true, "kismat": true, "panchagarh": true, "panchbibi": true, "parbatipur": true, "pirganj": true, "ruhia": true, "setabganj": true, "thakurgaon road": true},
+      "joydebpur": {"birampur": false, "chirirbandar": false, "dinajpur": true, "fulbari": false, "kismat": false, "panchagarh": true, "panchbibi": false, "parbatipur": false, "pirganj": false, "ruhia": false, "setabganj": false, "thakurgaon road": true},
+      "tangail": {"birampur": false, "chirirbandar": false, "dinajpur": true, "fulbari": false, "kismat": false, "panchagarh": true, "panchbibi": false, "parbatipur": false, "pirganj": false, "ruhia": false, "setabganj": false, "thakurgaon road": true}
+    }
+  },
+  "706": {
+    "train": "EKOTA EXPRESS (706)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Santahar": {"Natore": true, "Ullapara": false, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Natore": {"Ullapara": false, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Ullapara": {"Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Ibrahimabad": {"Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Tangail": {"Joydebpur": false, "Dhaka": true},
+      "Joydebpur": {"Dhaka": true}
+    }
+  },
+  "707": {
+    "train": "TISTA EXPRESS (707)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Gafargaon": true, "Mymensingh": true, "Piyarpur": true, "Jamalpur Town": true, "Melandah Bazar": true, "Islampur Bazar": true, "Dewanganj Bazar": true},
+      "Biman Bandar": {"Joydebpur": false, "Gafargaon": true, "Mymensingh": true, "Piyarpur": false, "Jamalpur Town": true, "Melandah Bazar": false, "Islampur Bazar": true, "Dewanganj Bazar": true},
+      "Joydebpur": {"Gafargaon": false, "Mymensingh": true, "Piyarpur": false, "Jamalpur Town": true, "Melandah Bazar": false, "Islampur Bazar": false, "Dewanganj Bazar": true},
+      "Gafargaon": {"Mymensingh": true, "Piyarpur": false, "Jamalpur Town": true, "Melandah Bazar": false, "Islampur Bazar": false, "Dewanganj Bazar": true},
+      "Mymensingh": {"Piyarpur": true, "Jamalpur Town": true, "Melandah Bazar": true, "Islampur Bazar": true, "Dewanganj Bazar": true},
+      "Piyarpur": {"Jamalpur Town": true, "Melandah Bazar": false, "Islampur Bazar": false, "Dewanganj Bazar": true},
+      "Jamalpur Town": {"Melandah Bazar": true, "Islampur Bazar": true, "Dewanganj Bazar": true},
+      "Melandah Bazar": {"Islampur Bazar": false, "Dewanganj Bazar": true},
+      "Islampur Bazar": {"Dewanganj Bazar": true}
+    }
+  },
+  "716": {
+    "train": "KAPOTAKSHA EXPRESS (716)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Rajshahi": {"Azim Nagar": true, "Ishwardi": true, "Paksey": true, "Bheramara": true, "Mirpur": true, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Darshana Halt": true, "Safdarpur": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Azim Nagar": {"Ishwardi": false, "Paksey": false, "Bheramara": false, "Mirpur": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Ishwardi": {"Paksey": false, "Bheramara": false, "Mirpur": false, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Paksey": {"Bheramara": false, "Mirpur": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": false, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Bheramara": {"Mirpur": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Mirpur": {"Poradaha": false, "Alamdanga": false, "Chuadanga": false, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Poradaha": {"Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": true, "Mubarakganj": false, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Alamdanga": {"Chuadanga": false, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Chuadanga": {"Darshana Halt": false, "Safdarpur": false, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Darshana Halt": {"Safdarpur": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Safdarpur": {"Kotchandpur": false, "Mubarakganj": false, "Jashore": false, "Noapara": false, "Khulna": false},
+      "Kotchandpur": {"Mubarakganj": false, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Mubarakganj": {"Jashore": true, "Noapara": true, "Khulna": true},
+      "Jashore": {"Noapara": true, "Khulna": true},
+      "Noapara": {"Khulna": true}
+    }
+  },
+  "722": {
+    "train": "MOHANAGAR EXPRESS (722)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Narsingdi": true, "Bhairab Bazar": true, "Ashuganj": true, "Brahmanbaria": true, "Akhaura": true, "Quasba": true, "Cumilla": true, "Laksam": true, "Nangolkot": true, "Feni": true, "Kumira": true, "Chattogram": true},
+      "Biman Bandar": {"Narsingdi": false, "Bhairab Bazar": true, "Ashuganj": false, "Brahmanbaria": true, "Akhaura": true, "Quasba": false, "Cumilla": true, "Laksam": false, "Nangolkot": false, "Feni": true, "Kumira": false, "Chattogram": true},
+      "Narsingdi": {"Bhairab Bazar": false, "Ashuganj": false, "Brahmanbaria": false, "Akhaura": false, "Quasba": false, "Cumilla": false, "Laksam": false, "Nangolkot": false, "Feni": false, "Kumira": false, "Chattogram": true},
+      "Bhairab Bazar": {"Ashuganj": false, "Brahmanbaria": false, "Akhaura": false, "Quasba": false, "Cumilla": false, "Laksam": false, "Nangolkot": false, "Feni": false, "Kumira": false, "Chattogram": true},
+      "Ashuganj": {"Brahmanbaria": false, "Akhaura": false, "Quasba": false, "Cumilla": false, "Laksam": false, "Nangolkot": false, "Feni": false, "Kumira": false, "Chattogram": true},
+      "Brahmanbaria": {"Akhaura": false, "Quasba": false, "Cumilla": false, "Laksam": false, "Nangolkot": false, "Feni": false, "Kumira": false, "Chattogram": true},
+      "Akhaura": {"Quasba": false, "Cumilla": false, "Laksam": false, "Nangolkot": false, "Feni": false, "Kumira": false, "Chattogram": true},
+      "Quasba": {"Cumilla": false, "Laksam": false, "Nangolkot": false, "Feni": false, "Kumira": false, "Chattogram": false},
+      "Cumilla": {"Laksam": false, "Nangolkot": false, "Feni": false, "Kumira": false, "Chattogram": false},
+      "Laksam": {"Nangolkot": false, "Feni": false, "Kumira": false, "Chattogram": false},
+      "Nangolkot": {"Feni": false, "Kumira": false, "Chattogram": false},
+      "Feni": {"Kumira": false, "Chattogram": false},
+      "Kumira": {"Chattogram": false}
+    }
+  },
+  "728": {
+    "train": "RUPSHA EXPRESS (728)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Chilahati": {"Domar": true, "Nilphamari": true, "Saidpur": true, "Parbatipur": true, "Fulbari": true, "Birampur": true, "Joypurhat": true, "Akkelpur": true, "Santahar": true, "Ahsanganj": true, "Natore": true, "Ishwardi": true, "Paksey": true, "Bheramara": true, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Domar": {"Nilphamari": false, "Saidpur": true, "Parbatipur": true, "Fulbari": false, "Birampur": false, "Joypurhat": true, "Akkelpur": false, "Santahar": true, "Ahsanganj": false, "Natore": true, "Ishwardi": true, "Paksey": false, "Bheramara": true, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Nilphamari": {"Saidpur": true, "Parbatipur": true, "Fulbari": false, "Birampur": false, "Joypurhat": true, "Akkelpur": false, "Santahar": true, "Ahsanganj": false, "Natore": true, "Ishwardi": true, "Paksey": false, "Bheramara": true, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Saidpur": {"Parbatipur": false, "Fulbari": true, "Birampur": true, "Joypurhat": true, "Akkelpur": true, "Santahar": true, "Ahsanganj": true, "Natore": true, "Ishwardi": true, "Paksey": true, "Bheramara": true, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Parbatipur": {"Fulbari": false, "Birampur": false, "Joypurhat": true, "Akkelpur": false, "Santahar": true, "Ahsanganj": false, "Natore": true, "Ishwardi": true, "Paksey": false, "Bheramara": true, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": true, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Fulbari": {"Birampur": false, "Joypurhat": false, "Akkelpur": false, "Santahar": true, "Ahsanganj": false, "Natore": true, "Ishwardi": true, "Paksey": false, "Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Birampur": {"Joypurhat": false, "Akkelpur": false, "Santahar": false, "Ahsanganj": false, "Natore": true, "Ishwardi": true, "Paksey": false, "Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Joypurhat": {"Akkelpur": false, "Santahar": false, "Ahsanganj": false, "Natore": true, "Ishwardi": true, "Paksey": false, "Bheramara": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Akkelpur": {"Santahar": false, "Ahsanganj": false, "Natore": false, "Ishwardi": true, "Paksey": false, "Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Santahar": {"Ahsanganj": false, "Natore": true, "Ishwardi": true, "Paksey": false, "Bheramara": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Ahsanganj": {"Natore": false, "Ishwardi": true, "Paksey": false, "Bheramara": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Natore": {"Ishwardi": true, "Paksey": false, "Bheramara": true, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": true, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Ishwardi": {"Paksey": false, "Bheramara": true, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Paksey": {"Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": false, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Bheramara": {"Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Poradaha": {"Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Alamdanga": {"Chuadanga": true, "Darshana Halt": true, "Kotchandpur": true, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Chuadanga": {"Darshana Halt": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Darshana Halt": {"Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Kotchandpur": {"Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Mubarakganj": {"Jashore": true, "Noapara": true, "Khulna": true},
+      "Jashore": {"Noapara": true, "Khulna": true},
+      "Noapara": {"Khulna": true}
+    }
+  },
+  "731": {
+    "train": "BARENDRA EXPRESS (731)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Rajshahi": {"Abdulpur": true, "Natore": true, "Madhnagar": true, "Ahsanganj": true, "Santahar": true, "Akkelpur": true, "Joypurhat": true, "Panchbibi": true, "Birampur": true, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": true, "Domar": true, "Chilahati": true},
+      "Abdulpur": {"Natore": true, "Madhnagar": false, "Ahsanganj": true, "Santahar": true, "Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": false, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": true, "Domar": false, "Chilahati": true},
+      "Natore": {"Madhnagar": false, "Ahsanganj": true, "Santahar": true, "Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": true, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": true, "Domar": true, "Chilahati": true},
+      "Madhnagar": {"Ahsanganj": false, "Santahar": true, "Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": false, "Domar": false, "Chilahati": true},
+      "Ahsanganj": {"Santahar": true, "Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": false, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": false, "Domar": false, "Chilahati": true},
+      "Santahar": {"Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": false, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": true, "Domar": false, "Chilahati": true},
+      "Akkelpur": {"Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": false, "Domar": false, "Chilahati": true},
+      "Joypurhat": {"Panchbibi": false, "Birampur": false, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": true, "Domar": true, "Chilahati": true},
+      "Panchbibi": {"Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": true, "Domar": false, "Chilahati": true},
+      "Birampur": {"Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": true, "Domar": false, "Chilahati": true},
+      "Fulbari": {"Parbatipur": true, "Saidpur": true, "Nilphamari": true, "Domar": true, "Chilahati": true},
+      "Parbatipur": {"Saidpur": true, "Nilphamari": true, "Domar": true, "Chilahati": true},
+      "Saidpur": {"Nilphamari": true, "Domar": true, "Chilahati": true},
+      "Nilphamari": {"Domar": false, "Chilahati": true},
+      "Domar": {"Chilahati": true}
+    }
+  },
+  "732": {
+    "train": "BARENDRA EXPRESS (732)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Chilahati": {"Domar": true, "Nilphamari": true, "Saidpur": true, "Parbatipur": true, "Fulbari": true, "Birampur": true, "Hili": true, "Panchbibi": true, "Joypurhat": true, "Akkelpur": true, "Santahar": true, "Ahsanganj": true, "Madhnagar": true, "Natore": true, "Abdulpur": true, "Rajshahi": true},
+      "Domar": {"Nilphamari": false, "Saidpur": true, "Parbatipur": true, "Fulbari": true, "Birampur": false, "Hili": false, "Panchbibi": false, "Joypurhat": true, "Akkelpur": false, "Santahar": true, "Ahsanganj": false, "Madhnagar": true, "Natore": true, "Abdulpur": false, "Rajshahi": true},
+      "Nilphamari": {"Saidpur": true, "Parbatipur": true, "Fulbari": false, "Birampur": false, "Hili": false, "Panchbibi": false, "Joypurhat": true, "Akkelpur": false, "Santahar": true, "Ahsanganj": false, "Madhnagar": false, "Natore": true, "Abdulpur": false, "Rajshahi": true},
+      "Saidpur": {"Parbatipur": true, "Fulbari": true, "Birampur": true, "Hili": true, "Panchbibi": true, "Joypurhat": true, "Akkelpur": true, "Santahar": true, "Ahsanganj": true, "Madhnagar": true, "Natore": true, "Abdulpur": true, "Rajshahi": true},
+      "Parbatipur": {"Fulbari": false, "Birampur": false, "Hili": false, "Panchbibi": false, "Joypurhat": true, "Akkelpur": true, "Santahar": true, "Ahsanganj": true, "Madhnagar": false, "Natore": true, "Abdulpur": true, "Rajshahi": true},
+      "Fulbari": {"Birampur": false, "Hili": false, "Panchbibi": false, "Joypurhat": false, "Akkelpur": false, "Santahar": true, "Ahsanganj": true, "Madhnagar": true, "Natore": true, "Abdulpur": false, "Rajshahi": true},
+      "Birampur": {"Hili": false, "Panchbibi": false, "Joypurhat": false, "Akkelpur": false, "Santahar": true, "Ahsanganj": false, "Madhnagar": false, "Natore": true, "Abdulpur": false, "Rajshahi": true},
+      "Hili": {"Panchbibi": false, "Joypurhat": false, "Akkelpur": false, "Santahar": false, "Ahsanganj": false, "Madhnagar": false, "Natore": false, "Abdulpur": false, "Rajshahi": false},
+      "Panchbibi": {"Joypurhat": false, "Akkelpur": false, "Santahar": true, "Ahsanganj": false, "Madhnagar": false, "Natore": true, "Abdulpur": false, "Rajshahi": true},
+      "Joypurhat": {"Akkelpur": false, "Santahar": true, "Ahsanganj": true, "Madhnagar": false, "Natore": true, "Abdulpur": true, "Rajshahi": true},
+      "Akkelpur": {"Santahar": false, "Ahsanganj": false, "Madhnagar": false, "Natore": true, "Abdulpur": false, "Rajshahi": true},
+      "Santahar": {"Ahsanganj": true, "Madhnagar": true, "Natore": true, "Abdulpur": true, "Rajshahi": true},
+      "Ahsanganj": {"Madhnagar": false, "Natore": true, "Abdulpur": true, "Rajshahi": true},
+      "Madhnagar": {"Natore": false, "Abdulpur": false, "Rajshahi": true},
+      "Natore": {"Abdulpur": true, "Rajshahi": true},
+      "Abdulpur": {"Rajshahi": true}
+    }
+  },
+  "742": {
+    "train": "TURNA (742)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Bhairab Bazar": true, "Brahmanbaria": true, "Akhaura": true, "Cumilla": true, "Laksam": true, "Feni": true, "Chattogram": true},
+      "Biman Bandar": {"Bhairab Bazar": true, "Brahmanbaria": true, "Akhaura": true, "Cumilla": false, "Laksam": false, "Feni": false, "Chattogram": true},
+      "Bhairab Bazar": {"Brahmanbaria": false, "Akhaura": false, "Cumilla": false, "Laksam": false, "Feni": false, "Chattogram": false},
+      "Brahmanbaria": {"Akhaura": false, "Cumilla": false, "Laksam": false, "Feni": false, "Chattogram": false},
+      "Akhaura": {"Cumilla": false, "Laksam": false, "Feni": false, "Chattogram": false},
+      "Cumilla": {"Laksam": false, "Feni": false, "Chattogram": false},
+      "Laksam": {"Feni": false, "Chattogram": false},
+      "Feni": {"Chattogram": false}
+    }
+  },
+  "743": {
+    "train": "BHRAMMAPUTRA EXPRESS (743)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Sreepur": true, "Gafargaon": true, "Mymensingh": true, "Piyarpur": true, "Nandina": true, "Jamalpur Town": true, "Melandah Bazar": true, "Islampur Bazar": true, "Dewanganj Bazar": true},
+      "Biman Bandar": {"Joydebpur": true, "Sreepur": false, "Gafargaon": true, "Mymensingh": true, "Piyarpur": true, "Nandina": true, "Jamalpur Town": true, "Melandah Bazar": true, "Islampur Bazar": true, "Dewanganj Bazar": true},
+      "Joydebpur": {"Sreepur": false, "Gafargaon": false, "Mymensingh": true, "Piyarpur": false, "Nandina": false, "Jamalpur Town": true, "Melandah Bazar": false, "Islampur Bazar": false, "Dewanganj Bazar": true},
+      "Sreepur": {"Gafargaon": false, "Mymensingh": false, "Piyarpur": false, "Nandina": false, "Jamalpur Town": false, "Melandah Bazar": false, "Islampur Bazar": false, "Dewanganj Bazar": false},
+      "Gafargaon": {"Mymensingh": true, "Piyarpur": false, "Nandina": false, "Jamalpur Town": true, "Melandah Bazar": false, "Islampur Bazar": false, "Dewanganj Bazar": true},
+      "Mymensingh": {"Piyarpur": false, "Nandina": false, "Jamalpur Town": true, "Melandah Bazar": true, "Islampur Bazar": true, "Dewanganj Bazar": true},
+      "Piyarpur": {"Nandina": false, "Jamalpur Town": true, "Melandah Bazar": false, "Islampur Bazar": false, "Dewanganj Bazar": true},
+      "Nandina": {"Jamalpur Town": true, "Melandah Bazar": false, "Islampur Bazar": false, "Dewanganj Bazar": true},
+      "Jamalpur Town": {"Melandah Bazar": true, "Islampur Bazar": true, "Dewanganj Bazar": true},
+      "Melandah Bazar": {"Islampur Bazar": false, "Dewanganj Bazar": true},
+      "Islampur Bazar": {"Dewanganj Bazar": true}
+    }
+  },
+  "748": {
+    "train": "SIMANTA EXPRESS (748)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Chilahati": {"Domar": true, "Nilphamari": true, "Saidpur": true, "Parbatipur": true, "Fulbari": true, "Birampur": true, "Joypurhat": true, "Akkelpur": true, "Santahar": true, "Natore": true, "Ishwardi": true, "Bheramara": true, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Daulatpur": true, "Khulna": true},
+      "Domar": {"Nilphamari": false, "Saidpur": false, "Parbatipur": true, "Fulbari": false, "Birampur": false, "Joypurhat": true, "Akkelpur": false, "Santahar": true, "Natore": true, "Ishwardi": true, "Bheramara": true, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Daulatpur": false, "Khulna": true},
+      "Nilphamari": {"Saidpur": false, "Parbatipur": true, "Fulbari": false, "Birampur": false, "Joypurhat": false, "Akkelpur": false, "Santahar": true, "Natore": true, "Ishwardi": true, "Bheramara": true, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Daulatpur": false, "Khulna": true},
+      "Saidpur": {"Parbatipur": false, "Fulbari": true, "Birampur": true, "Joypurhat": true, "Akkelpur": true, "Santahar": true, "Natore": true, "Ishwardi": true, "Bheramara": true, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Daulatpur": true, "Khulna": true},
+      "Parbatipur": {"Fulbari": false, "Birampur": false, "Joypurhat": true, "Akkelpur": false, "Santahar": true, "Natore": true, "Ishwardi": true, "Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Daulatpur": false, "Khulna": true},
+      "Fulbari": {"Birampur": false, "Joypurhat": false, "Akkelpur": false, "Santahar": true, "Natore": false, "Ishwardi": true, "Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Daulatpur": false, "Khulna": true},
+      "Birampur": {"Joypurhat": false, "Akkelpur": false, "Santahar": false, "Natore": false, "Ishwardi": false, "Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": false, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Daulatpur": false, "Khulna": true},
+      "Joypurhat": {"Akkelpur": false, "Santahar": false, "Natore": true, "Ishwardi": true, "Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Daulatpur": false, "Khulna": true},
+      "Akkelpur": {"Santahar": false, "Natore": false, "Ishwardi": false, "Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": false, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Daulatpur": false, "Khulna": true},
+      "Santahar": {"Natore": true, "Ishwardi": true, "Bheramara": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Daulatpur": false, "Khulna": true},
+      "Natore": {"Ishwardi": true, "Bheramara": true, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Daulatpur": false, "Khulna": true},
+      "Ishwardi": {"Bheramara": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": false, "Daulatpur": false, "Khulna": true},
+      "Bheramara": {"Poradaha": false, "Alamdanga": false, "Chuadanga": false, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": false, "Noapara": false, "Daulatpur": false, "Khulna": false},
+      "Poradaha": {"Alamdanga": false, "Chuadanga": false, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": false, "Noapara": false, "Daulatpur": false, "Khulna": false},
+      "Alamdanga": {"Chuadanga": false, "Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": false, "Noapara": false, "Daulatpur": false, "Khulna": false},
+      "Chuadanga": {"Darshana Halt": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": false, "Noapara": false, "Daulatpur": false, "Khulna": false},
+      "Darshana Halt": {"Kotchandpur": false, "Mubarakganj": false, "Jashore": false, "Noapara": false, "Daulatpur": false, "Khulna": false},
+      "Kotchandpur": {"Mubarakganj": false, "Jashore": false, "Noapara": false, "Daulatpur": false, "Khulna": false},
+      "Mubarakganj": {"Jashore": false, "Noapara": false, "Daulatpur": false, "Khulna": false},
+      "Jashore": {"Noapara": false, "Daulatpur": false, "Khulna": false},
+      "Noapara": {"Daulatpur": false, "Khulna": false},
+      "Daulatpur": {"Khulna": false}
+    }
+  },
+  "751": {
+    "train": "LALMONI EXPRESS (751)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Tangail": true, "Ibrahimabad": true, "SH M Monsur Ali": true, "Ullapara": true, "Boral Bridge": true, "Azim Nagar": true, "Natore": true, "Santahar": true, "Bogura": true, "Sonatola": true, "Bonar Para": true, "Gaibandha": true, "Bamondanga": true, "Pirgacha": true, "Kaunia": true, "Teesta Junction": true, "Lalmonirhat": true},
+      "Biman Bandar": {"Joydebpur": false, "Tangail": false, "Ibrahimabad": false, "SH M Monsur Ali": false, "Ullapara": true, "Boral Bridge": false, "Azim Nagar": false, "Natore": true, "Santahar": false, "Bogura": true, "Sonatola": false, "Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": true},
+      "Joydebpur": {"Tangail": false, "Ibrahimabad": false, "SH M Monsur Ali": false, "Ullapara": false, "Boral Bridge": false, "Azim Nagar": false, "Natore": false, "Santahar": false, "Bogura": false, "Sonatola": false, "Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": true},
+      "Tangail": {"Ibrahimabad": false, "SH M Monsur Ali": false, "Ullapara": false, "Boral Bridge": false, "Azim Nagar": false, "Natore": false, "Santahar": false, "Bogura": false, "Sonatola": false, "Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": true},
+      "Ibrahimabad": {"SH M Monsur Ali": false, "Ullapara": false, "Boral Bridge": false, "Azim Nagar": false, "Natore": false, "Santahar": false, "Bogura": false, "Sonatola": false, "Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": true},
+      "SH M Monsur Ali": {"Ullapara": false, "Boral Bridge": false, "Azim Nagar": false, "Natore": false, "Santahar": false, "Bogura": false, "Sonatola": false, "Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Ullapara": {"Boral Bridge": false, "Azim Nagar": false, "Natore": false, "Santahar": false, "Bogura": false, "Sonatola": false, "Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Boral Bridge": {"Azim Nagar": false, "Natore": false, "Santahar": false, "Bogura": false, "Sonatola": false, "Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Azim Nagar": {"Natore": false, "Santahar": false, "Bogura": false, "Sonatola": false, "Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Natore": {"Santahar": false, "Bogura": false, "Sonatola": false, "Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Santahar": {"Bogura": false, "Sonatola": false, "Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Bogura": {"Sonatola": false, "Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Sonatola": {"Bonar Para": false, "Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Bonar Para": {"Gaibandha": false, "Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Gaibandha": {"Bamondanga": false, "Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Bamondanga": {"Pirgacha": false, "Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Pirgacha": {"Kaunia": false, "Teesta Junction": false, "Lalmonirhat": false},
+      "Kaunia": {"Teesta Junction": false, "Lalmonirhat": false},
+      "Teesta Junction": {"Lalmonirhat": false}
+    }
+  },
+  "752": {
+    "train": "LALMONI EXPRESS (752)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Santahar": {"Natore": false, "Azim Nagar": true, "Boral Bridge": false, "Ullapara": false, "SH M Monsur Ali": false, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Natore": {"Azim Nagar": false, "Boral Bridge": false, "Ullapara": false, "SH M Monsur Ali": false, "Ibrahimabad": true, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Azim Nagar": {"Boral Bridge": false, "Ullapara": false, "SH M Monsur Ali": false, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Boral Bridge": {"Ullapara": false, "SH M Monsur Ali": false, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Ullapara": {"SH M Monsur Ali": false, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "SH M Monsur Ali": {"Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Ibrahimabad": {"Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Tangail": {"Joydebpur": false, "Dhaka": true},
+      "Joydebpur": {"Dhaka": true}
+    }
+  },
+  "753": {
+    "train": "SILKCITY EXPRESS (753)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Mirzapur": true, "Tangail": true, "Ibrahimabad": true, "SH M Monsur Ali": true, "Jamtail": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Abdulpur": true, "Rajshahi": true},
+      "Biman Bandar": {"Tangail": true, "Ibrahimabad": false, "SH M Monsur Ali": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Joydebpur": {"SH M Monsur Ali": true, "Ullapara": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Tangail": {"Ullapara": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Ibrahimabad": {"Ullapara": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "SH M Monsur Ali": {"Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Jamtail": {"Chatmohar": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Ullapara": {"Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Boral Bridge": {"Chatmohar": true, "Ishwardi Bypass": true, "Abdulpur": true, "Rajshahi": true},
+      "Chatmohar": {"Ishwardi Bypass": true, "Abdulpur": true, "Rajshahi": true},
+      "Ishwardi Bypass": {"Abdulpur": true, "Rajshahi": true},
+      "Abdulpur": {"Rajshahi": true},
+      "abdulpur": {"rajshahi": true},
+      "biman bandar": {"abdulpur": false, "boral bridge": true, "chatmohar": true, "ibrahimabad": false, "ishwardi bypass": true, "jamtail": false, "joydebpur": false, "mirzapur": false, "rajshahi": true, "sh m monsur ali": true, "tangail": true, "ullapara": true},
+      "boral bridge": {"abdulpur": true, "chatmohar": true, "ishwardi bypass": true, "rajshahi": true},
+      "chatmohar": {"abdulpur": true, "ishwardi bypass": true, "rajshahi": true},
+      "dhaka": {"abdulpur": true, "biman bandar": true, "boral bridge": true, "chatmohar": true, "ibrahimabad": true, "ishwardi bypass": true, "jamtail": true, "joydebpur": true, "mirzapur": true, "rajshahi": true, "sh m monsur ali": true, "tangail": true, "ullapara": true},
+      "ibrahimabad": {"abdulpur": false, "boral bridge": false, "chatmohar": false, "ishwardi bypass": true, "jamtail": false, "rajshahi": true, "sh m monsur ali": false, "ullapara": true},
+      "ishwardi bypass": {"abdulpur": true, "rajshahi": true},
+      "jamtail": {"abdulpur": false, "boral bridge": false, "chatmohar": true, "ishwardi bypass": true, "rajshahi": true, "ullapara": false},
+      "joydebpur": {"abdulpur": false, "boral bridge": false, "chatmohar": false, "ibrahimabad": false, "ishwardi bypass": true, "jamtail": false, "mirzapur": false, "rajshahi": true, "sh m monsur ali": true, "tangail": false, "ullapara": true},
+      "mirzapur": {"abdulpur": false, "boral bridge": false, "chatmohar": false, "ibrahimabad": false, "ishwardi bypass": false, "jamtail": false, "rajshahi": false, "sh m monsur ali": false, "tangail": false, "ullapara": false},
+      "sh m monsur ali": {"abdulpur": false, "boral bridge": true, "chatmohar": true, "ishwardi bypass": true, "jamtail": false, "rajshahi": true, "ullapara": true},
+      "tangail": {"abdulpur": false, "boral bridge": false, "chatmohar": false, "ibrahimabad": false, "ishwardi bypass": true, "jamtail": false, "rajshahi": true, "sh m monsur ali": false, "ullapara": true},
+      "ullapara": {"abdulpur": false, "boral bridge": true, "chatmohar": true, "ishwardi bypass": true, "rajshahi": true}
+    }
+  },
+  "754": {
+    "train": "SILKCITY EXPRESS (754)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Rajshahi": {"Abdulpur": true, "Ishwardi Bypass": true, "Chatmohar": true, "Boral Bridge": true, "Ullapara": true, "Jamtail": true, "SH M Monsur Ali": true, "Ibrahimabad": true, "Tangail": true, "Mirzapur": true, "Joydebpur": true, "Dhaka": true},
+      "Abdulpur": {"Ishwardi Bypass": true, "Chatmohar": true, "Boral Bridge": true, "Ullapara": true, "Jamtail": false, "SH M Monsur Ali": true, "Ibrahimabad": false, "Tangail": false, "Mirzapur": false, "Joydebpur": false, "Dhaka": true},
+      "Ishwardi Bypass": {"Chatmohar": true, "Boral Bridge": false, "Ullapara": true, "Jamtail": false, "SH M Monsur Ali": true, "Ibrahimabad": false, "Tangail": false, "Mirzapur": false, "Joydebpur": false, "Dhaka": true},
+      "Chatmohar": {"Boral Bridge": true, "Ullapara": true, "Jamtail": false, "SH M Monsur Ali": true, "Ibrahimabad": false, "Tangail": false, "Mirzapur": false, "Joydebpur": false, "Dhaka": true},
+      "Boral Bridge": {"Ullapara": true, "Jamtail": false, "SH M Monsur Ali": true, "Ibrahimabad": false, "Tangail": false, "Mirzapur": false, "Joydebpur": false, "Dhaka": true},
+      "Ullapara": {"Jamtail": false, "SH M Monsur Ali": true, "Ibrahimabad": true, "Tangail": false, "Mirzapur": false, "Joydebpur": false, "Dhaka": true},
+      "Jamtail": {"SH M Monsur Ali": false, "Ibrahimabad": false, "Tangail": false, "Mirzapur": false, "Joydebpur": false, "Dhaka": true},
+      "SH M Monsur Ali": {"Ibrahimabad": true, "Tangail": true, "Mirzapur": false, "Joydebpur": false, "Dhaka": true},
+      "Ibrahimabad": {"Tangail": true, "Mirzapur": false, "Joydebpur": false, "Dhaka": true},
+      "Tangail": {"Mirzapur": false, "Joydebpur": false, "Dhaka": true},
+      "Mirzapur": {"Joydebpur": false, "Dhaka": false},
+      "Joydebpur": {"Dhaka": true}
+    }
+  },
+  "755": {
+    "train": "MADHUMATI EXPRESS (755)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Sreenagar": true, "Mawa": true, "Padma": true, "Shibchar": true, "Bhanga": true, "Talma": true, "Faridpur": true, "Amirabad": true, "Pachuria": true, "Rajbari": true, "Kalukhali": true, "Pangsha": true, "Khoksha": true, "Kumarkhali": true, "Kushtia Court": true, "Poradaha": true, "Mirpur": true, "Bheramara": true, "Paksey": true, "Ishwardi": true, "Rajshahi": true},
+      "Mawa": {"Kushtia Court": true, "Poradaha": true, "Rajshahi": true},
+      "Padma": {"Poradaha": true, "Rajshahi": true},
+      "Shibchar": {"Kushtia Court": true, "Rajshahi": true},
+      "Bhanga": {"Kushtia Court": true, "Poradaha": true, "Ishwardi": true, "Rajshahi": true},
+      "Faridpur": {"Pangsha": true, "Kushtia Court": true, "Poradaha": true, "Bheramara": true, "Ishwardi": true, "Rajshahi": true},
+      "Rajbari": {"Kushtia Court": true, "Poradaha": true, "Bheramara": true, "Ishwardi": true, "Rajshahi": true},
+      "Kalukhali": {"Poradaha": true, "Bheramara": true, "Ishwardi": true, "Rajshahi": true},
+      "Pangsha": {"Poradaha": true, "Bheramara": true, "Ishwardi": true, "Rajshahi": true},
+      "Khoksha": {"Poradaha": true, "Ishwardi": true, "Rajshahi": true},
+      "Kumarkhali": {"Bheramara": true, "Ishwardi": true, "Rajshahi": true},
+      "Kushtia Court": {"Bheramara": true, "Ishwardi": true, "Rajshahi": true},
+      "Poradaha": {"Bheramara": true, "Ishwardi": true, "Rajshahi": true},
+      "Mirpur": {"Rajshahi": true},
+      "Bheramara": {"Ishwardi": true, "Rajshahi": true},
+      "Paksey": {"Rajshahi": true},
+      "Ishwardi": {"Rajshahi": true},
+      "amirabad": {"bheramara": false, "ishwardi": false, "kalukhali": false, "khoksha": false, "kumarkhali": false, "kushtia court": false, "mirpur": false, "pachuria": false, "paksey": false, "pangsha": false, "poradaha": false, "rajbari": false, "rajshahi": false},
+      "bhanga": {"amirabad": false, "bheramara": false, "faridpur": false, "ishwardi": true, "kalukhali": false, "khoksha": false, "kumarkhali": false, "kushtia court": true, "mirpur": false, "pachuria": false, "paksey": false, "pangsha": false, "poradaha": true, "pukuria": false, "rajbari": false, "rajshahi": true, "talma": false},
+      "bheramara": {"ishwardi": true, "paksey": false, "rajshahi": true},
+      "dhaka": {"amirabad": true, "bhanga": true, "bheramara": true, "faridpur": true, "ishwardi": true, "kalukhali": true, "khoksha": true, "kumarkhali": true, "kushtia court": true, "mawa": true, "mirpur": true, "pachuria": true, "padma": true, "paksey": true, "pangsha": true, "poradaha": true, "pukuria": false, "rajbari": true, "rajshahi": true, "shibchar": true, "sreenagar": true, "talma": true},
+      "faridpur": {"amirabad": false, "bheramara": true, "ishwardi": true, "kalukhali": false, "khoksha": false, "kumarkhali": false, "kushtia court": true, "mirpur": false, "pachuria": false, "paksey": false, "pangsha": true, "poradaha": true, "rajbari": false, "rajshahi": true},
+      "ishwardi": {"rajshahi": true},
+      "kalukhali": {"bheramara": true, "ishwardi": true, "khoksha": false, "kumarkhali": false, "kushtia court": false, "mirpur": false, "paksey": false, "pangsha": false, "poradaha": true, "rajshahi": true},
+      "khoksha": {"bheramara": false, "ishwardi": true, "kumarkhali": false, "kushtia court": false, "mirpur": false, "paksey": false, "poradaha": true, "rajshahi": true},
+      "kumarkhali": {"bheramara": true, "ishwardi": true, "kushtia court": false, "mirpur": false, "paksey": false, "poradaha": false, "rajshahi": true},
+      "kushtia court": {"bheramara": true, "ishwardi": true, "mirpur": false, "paksey": false, "poradaha": false, "rajshahi": true},
+      "mawa": {"amirabad": false, "bhanga": false, "bheramara": false, "faridpur": false, "ishwardi": false, "kalukhali": false, "khoksha": false, "kumarkhali": false, "kushtia court": true, "mirpur": false, "pachuria": false, "padma": false, "paksey": false, "pangsha": false, "poradaha": true, "pukuria": false, "rajbari": false, "rajshahi": true, "shibchar": false, "talma": false},
+      "mirpur": {"bheramara": false, "ishwardi": false, "paksey": false, "rajshahi": true},
+      "pachuria": {"bheramara": false, "ishwardi": false, "kalukhali": false, "khoksha": false, "kumarkhali": false, "kushtia court": false, "mirpur": false, "paksey": false, "pangsha": false, "poradaha": false, "rajbari": false, "rajshahi": false},
+      "padma": {"amirabad": false, "bhanga": false, "bheramara": false, "faridpur": false, "ishwardi": false, "kalukhali": false, "khoksha": false, "kumarkhali": false, "kushtia court": false, "mirpur": false, "pachuria": false, "paksey": false, "pangsha": false, "poradaha": true, "pukuria": false, "rajbari": false, "rajshahi": true, "shibchar": false, "talma": false},
+      "paksey": {"ishwardi": false, "rajshahi": true},
+      "pangsha": {"bheramara": true, "ishwardi": true, "khoksha": false, "kumarkhali": false, "kushtia court": false, "mirpur": false, "paksey": false, "poradaha": true, "rajshahi": true},
+      "poradaha": {"bheramara": true, "ishwardi": true, "mirpur": false, "paksey": false, "rajshahi": true},
+      "pukuria": {"amirabad": false, "bheramara": false, "faridpur": false, "ishwardi": false, "kalukhali": false, "khoksha": false, "kumarkhali": false, "kushtia court": false, "mirpur": false, "pachuria": false, "paksey": false, "pangsha": false, "poradaha": false, "rajbari": false, "rajshahi": false, "talma": false},
+      "rajbari": {"bheramara": true, "ishwardi": true, "kalukhali": false, "khoksha": false, "kumarkhali": false, "kushtia court": true, "mirpur": false, "paksey": false, "pangsha": false, "poradaha": true, "rajshahi": true},
+      "shibchar": {"amirabad": false, "bhanga": false, "bheramara": false, "faridpur": false, "ishwardi": false, "kalukhali": false, "khoksha": false, "kumarkhali": false, "kushtia court": true, "mirpur": false, "pachuria": false, "paksey": false, "pangsha": false, "poradaha": false, "pukuria": false, "rajbari": false, "rajshahi": true, "talma": false},
+      "sreenagar": {"amirabad": false, "bhanga": false, "bheramara": false, "faridpur": false, "ishwardi": false, "kalukhali": false, "khoksha": false, "kumarkhali": false, "kushtia court": false, "mawa": false, "mirpur": false, "pachuria": false, "padma": false, "paksey": false, "pangsha": false, "poradaha": false, "pukuria": false, "rajbari": false, "rajshahi": false, "shibchar": false, "talma": false},
+      "talma": {"amirabad": false, "bheramara": false, "faridpur": false, "ishwardi": false, "kalukhali": false, "khoksha": false, "kumarkhali": false, "kushtia court": false, "mirpur": false, "pachuria": false, "paksey": false, "pangsha": false, "poradaha": false, "rajbari": false, "rajshahi": false}
+    }
+  },
+  "756": {
+    "train": "MADHUMATI EXPRESS (756)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Rajshahi": {"Ishwardi": true, "Paksey": true, "Bheramara": true, "Mirpur": true, "Poradaha": true, "Kushtia Court": true, "Kumarkhali": true, "Khoksha": true, "Pangsha": true, "Kalukhali": true, "Rajbari": true, "Pachuria": true, "Amirabad": true, "Faridpur": true, "Talma": true, "Pukuria": false, "Bhanga": true, "Shibchar": true, "Padma": true, "Mawa": true, "Sreenagar": true, "Dhaka": true},
+      "Ishwardi": {"Paksey": false, "Bheramara": false, "Mirpur": false, "Poradaha": true, "Kushtia Court": true, "Kumarkhali": false, "Khoksha": false, "Pangsha": true, "Kalukhali": true, "Rajbari": true, "Pachuria": false, "Amirabad": false, "Faridpur": true, "Talma": false, "Pukuria": false, "Bhanga": true, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Paksey": {"Bheramara": false, "Mirpur": false, "Poradaha": false, "Kushtia Court": true, "Kumarkhali": false, "Khoksha": false, "Pangsha": false, "Kalukhali": false, "Rajbari": true, "Pachuria": false, "Amirabad": false, "Faridpur": false, "Talma": false, "Pukuria": false, "Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Bheramara": {"Mirpur": false, "Poradaha": false, "Kushtia Court": false, "Kumarkhali": false, "Khoksha": false, "Pangsha": false, "Kalukhali": false, "Rajbari": false, "Pachuria": false, "Amirabad": false, "Faridpur": true, "Talma": false, "Pukuria": false, "Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Mirpur": {"Poradaha": false, "Kushtia Court": false, "Kumarkhali": false, "Khoksha": false, "Pangsha": false, "Kalukhali": false, "Rajbari": false, "Pachuria": false, "Amirabad": false, "Faridpur": false, "Talma": false, "Pukuria": false, "Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Poradaha": {"Kushtia Court": false, "Kumarkhali": false, "Khoksha": false, "Pangsha": true, "Kalukhali": false, "Rajbari": true, "Pachuria": false, "Amirabad": false, "Faridpur": true, "Talma": false, "Pukuria": false, "Bhanga": true, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Kushtia Court": {"Kumarkhali": false, "Khoksha": false, "Pangsha": false, "Kalukhali": false, "Rajbari": true, "Pachuria": false, "Amirabad": false, "Faridpur": true, "Talma": false, "Pukuria": false, "Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Kumarkhali": {"Khoksha": false, "Pangsha": false, "Kalukhali": false, "Rajbari": false, "Pachuria": false, "Amirabad": false, "Faridpur": false, "Talma": false, "Pukuria": false, "Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Khoksha": {"Pangsha": false, "Kalukhali": true, "Rajbari": true, "Pachuria": false, "Amirabad": false, "Faridpur": true, "Talma": false, "Pukuria": false, "Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Pangsha": {"Kalukhali": false, "Rajbari": true, "Pachuria": false, "Amirabad": false, "Faridpur": true, "Talma": false, "Pukuria": false, "Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Kalukhali": {"Rajbari": false, "Pachuria": false, "Amirabad": false, "Faridpur": true, "Talma": false, "Pukuria": false, "Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Rajbari": {"Pachuria": false, "Amirabad": false, "Faridpur": true, "Talma": false, "Pukuria": false, "Bhanga": true, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Pachuria": {"Amirabad": false, "Faridpur": false, "Talma": false, "Pukuria": false, "Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": false},
+      "Amirabad": {"Faridpur": false, "Talma": false, "Pukuria": false, "Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": false},
+      "Faridpur": {"Talma": false, "Pukuria": false, "Bhanga": true, "Shibchar": false, "Padma": false, "Mawa": true, "Sreenagar": false, "Dhaka": true},
+      "Talma": {"Pukuria": false, "Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": false},
+      "Pukuria": {"Bhanga": false, "Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": false},
+      "Bhanga": {"Shibchar": false, "Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Shibchar": {"Padma": false, "Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Padma": {"Mawa": false, "Sreenagar": false, "Dhaka": true},
+      "Mawa": {"Sreenagar": false, "Dhaka": true},
+      "Sreenagar": {"Dhaka": false}
+    }
+  },
+  "757": {
+    "train": "DRUTOJAN EXPRESS (757)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Tangail": true, "Ibrahimabad": true, "Jamtail": true, "Chatmohar": true, "Natore": true, "Ahsanganj": true, "Santahar": true, "Akkelpur": true, "Joypurhat": true, "Panchbibi": true, "Birampur": true, "Fulbari": true, "Parbatipur": true, "Chirirbandar": true, "Dinajpur": true, "Setabganj": true, "Pirganj": true, "Thakurgaon Road": true, "Ruhia": true, "Kismat": true, "Panchagarh": true},
+      "Biman Bandar": {"Joydebpur": false, "Tangail": false, "Ibrahimabad": false, "Jamtail": true, "Chatmohar": false, "Natore": true, "Ahsanganj": false, "Santahar": false, "Akkelpur": false, "Joypurhat": true, "Parbatipur": false, "Dinajpur": true, "Panchagarh": true},
+      "Joydebpur": {"Tangail": false, "Ibrahimabad": false, "Jamtail": false, "Chatmohar": false, "Natore": false, "Ahsanganj": false, "Santahar": false, "Akkelpur": false, "Joypurhat": false, "Dinajpur": false, "Thakurgaon Road": false, "Panchagarh": true},
+      "Tangail": {"Ibrahimabad": false, "Jamtail": false, "Chatmohar": false, "Natore": false, "Ahsanganj": false, "Santahar": true, "Akkelpur": false, "Joypurhat": false, "Dinajpur": true, "Thakurgaon Road": false, "Panchagarh": true},
+      "Ibrahimabad": {"Jamtail": false, "Chatmohar": false, "Natore": false, "Ahsanganj": false, "Santahar": false, "Akkelpur": false, "Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Jamtail": {"Chatmohar": false, "Natore": false, "Ahsanganj": false, "Santahar": false, "Akkelpur": false, "Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Chatmohar": {"Natore": false, "Ahsanganj": false, "Santahar": false, "Akkelpur": false, "Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Natore": {"Ahsanganj": false, "Santahar": false, "Akkelpur": false, "Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Ahsanganj": {"Santahar": false, "Akkelpur": false, "Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Santahar": {"Akkelpur": false, "Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Akkelpur": {"Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Joypurhat": {"Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Panchbibi": {"Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Birampur": {"Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Fulbari": {"Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Parbatipur": {"Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Chirirbandar": {"Dinajpur": false, "Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Dinajpur": {"Setabganj": false, "Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Setabganj": {"Pirganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Pirganj": {"Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Thakurgaon Road": {"Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Ruhia": {"Kismat": false, "Panchagarh": false},
+      "Kismat": {"Panchagarh": false},
+      "biman bandar": {"birampur": false, "chirirbandar": false, "dinajpur": true, "fulbari": false, "kismat": false, "panchagarh": true, "panchbibi": false, "parbatipur": false, "pirganj": false, "ruhia": false, "setabganj": false, "thakurgaon road": false},
+      "dhaka": {"birampur": true, "chirirbandar": true, "dinajpur": true, "fulbari": true, "kismat": true, "panchagarh": true, "panchbibi": true, "parbatipur": true, "pirganj": true, "ruhia": true, "setabganj": true, "thakurgaon road": true},
+      "joydebpur": {"birampur": false, "chirirbandar": false, "dinajpur": false, "fulbari": false, "kismat": false, "panchagarh": true, "panchbibi": false, "parbatipur": false, "pirganj": false, "ruhia": false, "setabganj": false, "thakurgaon road": false},
+      "tangail": {"birampur": false, "chirirbandar": false, "dinajpur": true, "fulbari": false, "kismat": false, "panchagarh": true, "panchbibi": false, "parbatipur": false, "pirganj": false, "ruhia": false, "setabganj": false, "thakurgaon road": false}
+    }
+  },
+  "758": {
+    "train": "DRUTOJAN EXPRESS (758)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Santahar": {"Ahsanganj": true, "Natore": true, "Ishwardi Bypass": false, "Chatmohar": false, "Jamtail": false, "Ibrahimabad": false, "Tangail": false, "Joydebpur": true, "Dhaka": true},
+      "Ahsanganj": {"Natore": false, "Ishwardi Bypass": false, "Chatmohar": false, "Jamtail": false, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Natore": {"Ishwardi Bypass": false, "Chatmohar": true, "Jamtail": false, "Ibrahimabad": true, "Tangail": true, "Joydebpur": false, "Dhaka": true},
+      "Ishwardi Bypass": {"Chatmohar": false, "Jamtail": false, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Chatmohar": {"Jamtail": false, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Jamtail": {"Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Ibrahimabad": {"Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Tangail": {"Joydebpur": false, "Dhaka": true},
+      "Joydebpur": {"Dhaka": true}
+    }
+  },
+  "759": {
+    "train": "PADMA EXPRESS (759)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Tangail": true, "Ibrahimabad": true, "SH M Monsur Ali": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Abdulpur": true, "Sardah Road": true, "Rajshahi": true},
+      "Biman Bandar": {"Tangail": true, "Ibrahimabad": false, "SH M Monsur Ali": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Joydebpur": {"SH M Monsur Ali": true, "Ullapara": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Tangail": {"Ullapara": false, "Ishwardi Bypass": false, "Rajshahi": false},
+      "Ibrahimabad": {"Ullapara": false, "Ishwardi Bypass": false, "Rajshahi": false},
+      "SH M Monsur Ali": {"Ullapara": false, "Boral Bridge": false, "Chatmohar": false, "Ishwardi Bypass": false, "Rajshahi": false},
+      "Ullapara": {"Boral Bridge": false, "Chatmohar": false, "Ishwardi Bypass": false, "Rajshahi": false},
+      "Boral Bridge": {"Chatmohar": false, "Ishwardi Bypass": false, "Abdulpur": false, "Rajshahi": false},
+      "Chatmohar": {"Ishwardi Bypass": false, "Abdulpur": false, "Rajshahi": false},
+      "Ishwardi Bypass": {"Abdulpur": false, "Rajshahi": false},
+      "Abdulpur": {"Rajshahi": false},
+      "Sardah Road": {"Rajshahi": false},
+      "abdulpur": {"rajshahi": true, "sardah road": false},
+      "biman bandar": {"abdulpur": false, "boral bridge": true, "chatmohar": true, "ibrahimabad": false, "ishwardi bypass": true, "joydebpur": false, "rajshahi": true, "sardah road": false, "sh m monsur ali": true, "tangail": true, "ullapara": true},
+      "boral bridge": {"abdulpur": true, "chatmohar": true, "ishwardi bypass": true, "rajshahi": true, "sardah road": false},
+      "chatmohar": {"abdulpur": true, "ishwardi bypass": true, "rajshahi": true, "sardah road": false},
+      "dhaka": {"abdulpur": true, "biman bandar": true, "boral bridge": true, "chatmohar": true, "ibrahimabad": true, "ishwardi bypass": true, "joydebpur": true, "rajshahi": true, "sardah road": true, "sh m monsur ali": true, "tangail": true, "ullapara": true},
+      "ibrahimabad": {"abdulpur": false, "boral bridge": false, "chatmohar": false, "ishwardi bypass": true, "rajshahi": true, "sardah road": false, "sh m monsur ali": false, "ullapara": true},
+      "ishwardi bypass": {"abdulpur": true, "rajshahi": true, "sardah road": false},
+      "joydebpur": {"abdulpur": false, "boral bridge": false, "chatmohar": false, "ibrahimabad": false, "ishwardi bypass": true, "rajshahi": true, "sardah road": false, "sh m monsur ali": true, "tangail": false, "ullapara": true},
+      "sardah road": {"rajshahi": true},
+      "sh m monsur ali": {"abdulpur": false, "boral bridge": true, "chatmohar": true, "ishwardi bypass": true, "rajshahi": true, "sardah road": false, "ullapara": true},
+      "tangail": {"abdulpur": false, "boral bridge": false, "chatmohar": false, "ibrahimabad": false, "ishwardi bypass": true, "rajshahi": true, "sardah road": false, "sh m monsur ali": false, "ullapara": true},
+      "ullapara": {"abdulpur": false, "boral bridge": true, "chatmohar": true, "ishwardi bypass": true, "rajshahi": true, "sardah road": false}
+    }
+  },
+  "760": {
+    "train": "PADMA EXPRESS (760)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Rajshahi": {"Sardah Road": true, "Abdulpur": true, "Ishwardi Bypass": true, "Chatmohar": true, "Boral Bridge": true, "Ullapara": true, "SH M Monsur Ali": true, "Ibrahimabad": true, "Tangail": true, "Joydebpur": true, "Dhaka": true},
+      "Sardah Road": {"Abdulpur": false, "Ishwardi Bypass": false, "Chatmohar": false, "Boral Bridge": false, "Ullapara": false, "SH M Monsur Ali": false, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Abdulpur": {"Ishwardi Bypass": true, "Chatmohar": true, "Boral Bridge": true, "Ullapara": true, "SH M Monsur Ali": true, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Ishwardi Bypass": {"Chatmohar": true, "Boral Bridge": false, "Ullapara": true, "SH M Monsur Ali": true, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Chatmohar": {"Boral Bridge": true, "Ullapara": true, "SH M Monsur Ali": true, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Boral Bridge": {"Ullapara": true, "SH M Monsur Ali": true, "Ibrahimabad": false, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "Ullapara": {"SH M Monsur Ali": true, "Ibrahimabad": true, "Tangail": false, "Joydebpur": false, "Dhaka": true},
+      "SH M Monsur Ali": {"Ibrahimabad": true, "Tangail": true, "Joydebpur": false, "Dhaka": true},
+      "Ibrahimabad": {"Tangail": true, "Joydebpur": false, "Dhaka": true},
+      "Tangail": {"Joydebpur": false, "Dhaka": true},
+      "Joydebpur": {"Dhaka": true}
+    }
+  },
+  "762": {
+    "train": "SAGARDARI EXPRESS (762)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Rajshahi": {"Abdulpur": true, "Azim Nagar": true, "Ishwardi": true, "Paksey": true, "Bheramara": true, "Mirpur": true, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Darshana Halt": true, "Safdarpur": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Abdulpur": {"Azim Nagar": false, "Ishwardi": false, "Paksey": false, "Bheramara": false, "Mirpur": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": false, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Azim Nagar": {"Ishwardi": false, "Paksey": false, "Bheramara": false, "Mirpur": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": false, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Ishwardi": {"Paksey": false, "Bheramara": false, "Mirpur": false, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Paksey": {"Bheramara": false, "Mirpur": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": false, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Bheramara": {"Mirpur": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Mirpur": {"Poradaha": false, "Alamdanga": false, "Chuadanga": false, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Poradaha": {"Alamdanga": false, "Chuadanga": true, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Alamdanga": {"Chuadanga": false, "Darshana Halt": true, "Safdarpur": false, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Chuadanga": {"Darshana Halt": false, "Safdarpur": false, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Darshana Halt": {"Safdarpur": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Safdarpur": {"Kotchandpur": false, "Mubarakganj": false, "Jashore": false, "Noapara": false, "Khulna": false},
+      "Kotchandpur": {"Mubarakganj": false, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Mubarakganj": {"Jashore": true, "Noapara": true, "Khulna": true},
+      "Jashore": {"Noapara": true, "Khulna": true},
+      "Noapara": {"Khulna": true}
+    }
+  },
+  "764": {
+    "train": "CHITRA EXPRESS (764)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Tangail": true, "Ibrahimabad": true, "SH M Monsur Ali": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi": true, "Bheramara": true, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Biman Bandar": {"Joydebpur": false, "Tangail": false, "Ibrahimabad": true, "SH M Monsur Ali": true, "Ullapara": true, "Boral Bridge": false, "Chatmohar": false, "Ishwardi": true, "Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Joydebpur": {"Tangail": false, "Ibrahimabad": false, "SH M Monsur Ali": false, "Ullapara": false, "Boral Bridge": false, "Chatmohar": false, "Ishwardi": true, "Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Tangail": {"Ibrahimabad": false, "SH M Monsur Ali": false, "Ullapara": false, "Boral Bridge": false, "Chatmohar": false, "Ishwardi": true, "Bheramara": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Ibrahimabad": {"SH M Monsur Ali": false, "Ullapara": false, "Boral Bridge": false, "Chatmohar": false, "Ishwardi": true, "Bheramara": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "SH M Monsur Ali": {"Ullapara": false, "Boral Bridge": false, "Chatmohar": false, "Ishwardi": true, "Bheramara": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Ullapara": {"Boral Bridge": false, "Chatmohar": false, "Ishwardi": true, "Bheramara": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Boral Bridge": {"Chatmohar": false, "Ishwardi": true, "Bheramara": false, "Poradaha": false, "Alamdanga": false, "Chuadanga": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Chatmohar": {"Ishwardi": false, "Bheramara": false, "Poradaha": true, "Alamdanga": false, "Chuadanga": true, "Kotchandpur": false, "Mubarakganj": false, "Jashore": true, "Noapara": false, "Khulna": true},
+      "Ishwardi": {"Bheramara": false, "Poradaha": true, "Alamdanga": true, "Chuadanga": true, "Kotchandpur": true, "Mubarakganj": true, "Jashore": true, "Noapara": true, "Khulna": true},
+      "Bheramara": {"Poradaha": false, "Alamdanga": false, "Chuadanga": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": false, "Noapara": false, "Khulna": false},
+      "Poradaha": {"Alamdanga": false, "Chuadanga": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": false, "Noapara": false, "Khulna": false},
+      "Alamdanga": {"Chuadanga": false, "Kotchandpur": false, "Mubarakganj": false, "Jashore": false, "Noapara": false, "Khulna": false},
+      "Chuadanga": {"Kotchandpur": false, "Mubarakganj": false, "Jashore": false, "Noapara": false, "Khulna": false},
+      "Kotchandpur": {"Mubarakganj": false, "Jashore": false, "Noapara": false, "Khulna": false},
+      "Mubarakganj": {"Jashore": false, "Noapara": false, "Khulna": false},
+      "Jashore": {"Noapara": false, "Khulna": false},
+      "Noapara": {"Khulna": false}
+    }
+  },
+  "765": {
+    "train": "NILSAGAR EXPRESS (765)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Ibrahimabad": true, "Muladhuli": true, "Natore": true, "Ahsanganj": true, "Santahar": true, "Akkelpur": true, "Joypurhat": true, "Birampur": true, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": true},
+      "Biman Bandar": {"Joydebpur": false, "Ibrahimabad": true, "Muladhuli": false, "Natore": true, "Ahsanganj": false, "Santahar": true, "Akkelpur": false, "Joypurhat": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": false},
+      "Joydebpur": {"Ibrahimabad": false, "Muladhuli": false, "Natore": true, "Ahsanganj": false, "Santahar": true, "Akkelpur": false, "Joypurhat": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": false},
+      "Ibrahimabad": {"Muladhuli": false, "Natore": true, "Ahsanganj": false, "Santahar": true, "Akkelpur": false, "Joypurhat": true, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": false},
+      "Muladhuli": {"Natore": false, "Ahsanganj": false, "Santahar": false, "Akkelpur": false, "Joypurhat": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Saidpur": false, "Nilphamari": false},
+      "Natore": {"Ahsanganj": false, "Santahar": true, "Akkelpur": false, "Joypurhat": true, "Birampur": true, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": false},
+      "Ahsanganj": {"Santahar": false, "Akkelpur": false, "Joypurhat": true, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": false},
+      "Santahar": {"Akkelpur": false, "Joypurhat": true, "Birampur": true, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": true},
+      "Akkelpur": {"Joypurhat": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": false},
+      "Joypurhat": {"Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": true},
+      "Birampur": {"Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": true},
+      "Fulbari": {"Parbatipur": false, "Saidpur": true, "Nilphamari": true},
+      "Parbatipur": {"Saidpur": true, "Nilphamari": true},
+      "Saidpur": {"Nilphamari": true}
+    }
+  },
+  "766": {
+    "train": "NILSAGAR EXPRESS (766)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Santahar": {"Ahsanganj": false, "Natore": true, "Muladhuli": false, "Ibrahimabad": false, "Joydebpur": false, "Dhaka": true},
+      "Ahsanganj": {"Natore": false, "Muladhuli": false, "Ibrahimabad": false, "Joydebpur": false, "Dhaka": true},
+      "Natore": {"Muladhuli": false, "Ibrahimabad": false, "Joydebpur": false, "Dhaka": false},
+      "Muladhuli": {"Ibrahimabad": false, "Joydebpur": false, "Dhaka": false},
+      "Ibrahimabad": {"Joydebpur": false, "Dhaka": false},
+      "Joydebpur": {"Dhaka": false}
+    }
+  },
+  "769": {
+    "train": "DHUMKETU EXPRESS (769)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Tangail": true, "Ibrahimabad": true, "SH M Monsur Ali": true, "Jamtail": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Abdulpur": true, "Arani": true, "Rajshahi": true},
+      "Biman Bandar": {"Tangail": true, "Ibrahimabad": true, "SH M Monsur Ali": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Joydebpur": {"SH M Monsur Ali": true, "Ullapara": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Tangail": {"Ullapara": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Ibrahimabad": {"Ullapara": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "SH M Monsur Ali": {"Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Jamtail": {"Chatmohar": false, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Ullapara": {"Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Rajshahi": true},
+      "Boral Bridge": {"Chatmohar": true, "Ishwardi Bypass": true, "Abdulpur": true, "Rajshahi": true},
+      "Chatmohar": {"Ishwardi Bypass": true, "Abdulpur": true, "Rajshahi": true},
+      "Ishwardi Bypass": {"Abdulpur": true, "Rajshahi": true},
+      "Abdulpur": {"Rajshahi": true},
+      "abdulpur": {"arani": false, "rajshahi": true},
+      "arani": {"rajshahi": false},
+      "biman bandar": {"abdulpur": false, "arani": false, "boral bridge": true, "chatmohar": true, "ibrahimabad": true, "ishwardi bypass": true, "jamtail": false, "joydebpur": false, "rajshahi": true, "sh m monsur ali": true, "tangail": true, "ullapara": true},
+      "boral bridge": {"abdulpur": true, "arani": false, "chatmohar": true, "ishwardi bypass": true, "rajshahi": true},
+      "chatmohar": {"abdulpur": true, "arani": false, "ishwardi bypass": true, "rajshahi": true},
+      "dhaka": {"abdulpur": true, "arani": true, "biman bandar": true, "boral bridge": true, "chatmohar": true, "ibrahimabad": true, "ishwardi bypass": true, "jamtail": true, "joydebpur": true, "rajshahi": true, "sh m monsur ali": true, "tangail": true, "ullapara": true},
+      "ibrahimabad": {"abdulpur": false, "arani": false, "boral bridge": false, "chatmohar": false, "ishwardi bypass": true, "jamtail": false, "rajshahi": true, "sh m monsur ali": false, "ullapara": true},
+      "ishwardi bypass": {"abdulpur": true, "arani": false, "rajshahi": true},
+      "jamtail": {"abdulpur": false, "arani": false, "boral bridge": false, "chatmohar": false, "ishwardi bypass": true, "rajshahi": true, "ullapara": false},
+      "joydebpur": {"abdulpur": false, "arani": false, "boral bridge": false, "chatmohar": false, "ibrahimabad": false, "ishwardi bypass": true, "jamtail": false, "rajshahi": true, "sh m monsur ali": true, "tangail": false, "ullapara": true},
+      "sh m monsur ali": {"abdulpur": false, "arani": false, "boral bridge": true, "chatmohar": true, "ishwardi bypass": true, "jamtail": false, "rajshahi": true, "ullapara": true},
+      "tangail": {"abdulpur": false, "arani": false, "boral bridge": false, "chatmohar": false, "ibrahimabad": false, "ishwardi bypass": true, "jamtail": false, "rajshahi": true, "sh m monsur ali": false, "ullapara": true},
+      "ullapara": {"abdulpur": false, "arani": false, "boral bridge": true, "chatmohar": true, "ishwardi bypass": true, "rajshahi": true}
+    }
+  },
+  "771": {
+    "train": "RANGPUR EXPRESS (771)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Ibrahimabad": true, "Chatmohar": true, "Natore": true, "Santahar": true},
+      "Biman Bandar": {"Ibrahimabad": false, "Chatmohar": true, "Natore": false, "Santahar": true},
+      "Ibrahimabad": {"Chatmohar": false, "Natore": false, "Santahar": true},
+      "Chatmohar": {"Natore": true, "Santahar": true},
+      "Natore": {"Santahar": true}
+    }
+  },
+  "791": {
+    "train": "BANALATA EXPRESS (791)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Rajshahi": true},
+      "Biman Bandar": {"Rajshahi": true},
+      "biman bandar": {"rajshahi": true},
+      "dhaka": {"biman bandar": true, "rajshahi": true}
+    }
+  },
+  "792": {
+    "train": "BANALATA EXPRESS (792)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Chapainawabganj": {"Rajshahi": true, "Dhaka": true},
+      "Rajshahi": {"Dhaka": true}
+    }
+  },
+  "793": {
+    "train": "PANCHAGARH EXPRESS (793)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Natore": true, "Santahar": true, "Joypurhat": true, "Parbatipur": true, "Dinajpur": true, "Pirganj": true, "Thakurgaon Road": true, "Panchagarh": true},
+      "Biman Bandar": {"Natore": true, "Santahar": true, "Joypurhat": false, "Parbatipur": true, "Dinajpur": true, "Panchagarh": true},
+      "Natore": {"Santahar": false, "Joypurhat": false, "Parbatipur": false, "Dinajpur": false, "Pirganj": false, "Thakurgaon Road": false, "Panchagarh": false},
+      "Santahar": {"Joypurhat": false, "Parbatipur": false, "Dinajpur": false, "Pirganj": false, "Thakurgaon Road": false, "Panchagarh": false},
+      "Joypurhat": {"Parbatipur": false, "Dinajpur": false, "Pirganj": false, "Thakurgaon Road": false, "Panchagarh": false},
+      "Parbatipur": {"Dinajpur": false, "Pirganj": false, "Thakurgaon Road": false, "Panchagarh": false},
+      "Dinajpur": {"Pirganj": false, "Thakurgaon Road": false, "Panchagarh": false},
+      "Pirganj": {"Thakurgaon Road": false, "Panchagarh": false},
+      "Thakurgaon Road": {"Panchagarh": false},
+      "biman bandar": {"dinajpur": true, "joypurhat": false, "natore": true, "panchagarh": true, "parbatipur": true, "pirganj": false, "santahar": true, "thakurgaon road": false},
+      "dhaka": {"biman bandar": true, "dinajpur": true, "joypurhat": true, "natore": true, "panchagarh": true, "parbatipur": true, "pirganj": true, "santahar": true, "thakurgaon road": true},
+      "natore": {"dinajpur": false, "joypurhat": false, "panchagarh": false, "parbatipur": false, "pirganj": false, "santahar": false, "thakurgaon road": false},
+      "santahar": {"dinajpur": false, "joypurhat": false, "panchagarh": false, "parbatipur": false, "pirganj": false, "thakurgaon road": false}
+    }
+  },
+  "794": {
+    "train": "PANCHAGARH EXPRESS (794)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Santahar": {"Natore": true, "Dhaka": true},
+      "Natore": {"Dhaka": true}
+    }
+  },
+  "797": {
+    "train": "KURIGRAM EXPRESS (797)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Natore": true, "Madhnagar": true, "Santahar": true},
+      "Biman Bandar": {"Natore": true, "Madhnagar": false, "Santahar": true},
+      "Natore": {"Madhnagar": false, "Santahar": false},
+      "Madhnagar": {"Santahar": false}
+    }
+  },
+  "798": {
+    "train": "KURIGRAM EXPRESS (798)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Santahar": {"Madhnagar": true, "Natore": false, "Dhaka": true},
+      "Madhnagar": {"Natore": false, "Dhaka": true},
+      "Natore": {"Dhaka": true}
+    }
+  },
+  "802": {
+    "train": "CHATTALA EXPRESS (802)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Narsingdi": true, "Methikanda": true, "Bhairab Bazar": true, "Brahmanbaria": true, "Akhaura": true, "Quasba": true, "Shashidal": true, "Cumilla": true, "Laksam": true, "Nangolkot": true, "Hasanpur": true, "Feni": true, "Kumira": true, "Chattogram": true},
+      "Biman Bandar": {"Narsingdi": true, "Methikanda": false, "Bhairab Bazar": true, "Brahmanbaria": true, "Akhaura": true, "Quasba": false, "Shashidal": false, "Cumilla": true, "Laksam": true, "Nangolkot": false, "Hasanpur": false, "Feni": true, "Kumira": false, "Chattogram": true},
+      "Narsingdi": {"Methikanda": false, "Bhairab Bazar": false, "Brahmanbaria": false, "Akhaura": false, "Quasba": false, "Shashidal": false, "Cumilla": false, "Laksam": false, "Nangolkot": false, "Hasanpur": false, "Feni": false, "Kumira": false, "Chattogram": true},
+      "Methikanda": {"Bhairab Bazar": false, "Brahmanbaria": false, "Akhaura": false, "Quasba": false, "Shashidal": false, "Cumilla": false, "Laksam": false, "Nangolkot": false, "Hasanpur": false, "Feni": false, "Kumira": false, "Chattogram": true},
+      "Bhairab Bazar": {"Brahmanbaria": true, "Akhaura": false, "Quasba": false, "Shashidal": false, "Cumilla": true, "Laksam": true, "Nangolkot": false, "Hasanpur": false, "Feni": true, "Kumira": false, "Chattogram": true},
+      "Brahmanbaria": {"Akhaura": false, "Quasba": false, "Shashidal": false, "Cumilla": true, "Laksam": true, "Nangolkot": false, "Hasanpur": false, "Feni": true, "Kumira": false, "Chattogram": true},
+      "Akhaura": {"Quasba": false, "Shashidal": false, "Cumilla": false, "Laksam": false, "Nangolkot": false, "Hasanpur": false, "Feni": false, "Kumira": false, "Chattogram": true},
+      "Quasba": {"Shashidal": false, "Cumilla": false, "Laksam": false, "Nangolkot": false, "Hasanpur": false, "Feni": false, "Kumira": false, "Chattogram": true},
+      "Shashidal": {"Cumilla": false, "Laksam": false, "Nangolkot": false, "Hasanpur": false, "Feni": false, "Kumira": false, "Chattogram": false},
+      "Cumilla": {"Laksam": true, "Nangolkot": false, "Hasanpur": false, "Feni": true, "Kumira": false, "Chattogram": true},
+      "Laksam": {"Nangolkot": false, "Hasanpur": false, "Feni": false, "Kumira": false, "Chattogram": true},
+      "Nangolkot": {"Hasanpur": false, "Feni": false, "Kumira": false, "Chattogram": true},
+      "Hasanpur": {"Feni": false, "Kumira": false, "Chattogram": true},
+      "Feni": {"Kumira": false, "Chattogram": true},
+      "Kumira": {"Chattogram": false}
+    }
+  },
+  "803": {
+    "train": "BANGLABANDHA EXPRESS (803)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Rajshahi": {"Abdulpur": true, "Natore": true, "Madhnagar": true, "Ahsanganj": true, "Santahar": true, "Akkelpur": true, "Joypurhat": true, "Panchbibi": true, "Birampur": true, "Fulbari": true, "Parbatipur": true, "Chirirbandar": true, "Dinajpur": true, "Setabganj": true, "Pirganj": true, "Shibganj": true, "Thakurgaon Road": true, "Ruhia": true, "Kismat": true, "Panchagarh": true},
+      "Abdulpur": {"Natore": true, "Madhnagar": false, "Ahsanganj": true, "Santahar": true, "Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Natore": {"Madhnagar": false, "Ahsanganj": false, "Santahar": true, "Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": true, "Fulbari": true, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Madhnagar": {"Ahsanganj": false, "Santahar": true, "Akkelpur": false, "Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Ahsanganj": {"Santahar": true, "Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Santahar": {"Akkelpur": false, "Joypurhat": true, "Panchbibi": false, "Birampur": false, "Fulbari": true, "Parbatipur": true, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Akkelpur": {"Joypurhat": false, "Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": true, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": true, "Ruhia": false, "Kismat": false, "Panchagarh": true},
+      "Joypurhat": {"Panchbibi": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Panchbibi": {"Birampur": false, "Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Birampur": {"Fulbari": false, "Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Fulbari": {"Parbatipur": false, "Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Parbatipur": {"Chirirbandar": false, "Dinajpur": false, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Chirirbandar": {"Dinajpur": false, "Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Dinajpur": {"Setabganj": false, "Pirganj": false, "Shibganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Setabganj": {"Pirganj": false, "Shibganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Pirganj": {"Shibganj": false, "Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Shibganj": {"Thakurgaon Road": false, "Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Thakurgaon Road": {"Ruhia": false, "Kismat": false, "Panchagarh": false},
+      "Ruhia": {"Kismat": false, "Panchagarh": false},
+      "Kismat": {"Panchagarh": false}
+    }
+  },
+  "805": {
+    "train": "CHILAHATI EXPRESS (805)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Ishwardi Bypass": true, "Azim Nagar": true, "Natore": true, "Santahar": true, "Joypurhat": true, "Birampur": true, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": true},
+      "Biman Bandar": {"Joydebpur": false, "Ishwardi Bypass": false, "Azim Nagar": false, "Natore": true, "Santahar": true, "Joypurhat": true, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": true},
+      "Joydebpur": {"Ishwardi Bypass": false, "Azim Nagar": false, "Natore": false, "Santahar": false, "Joypurhat": false, "Birampur": false, "Fulbari": false, "Parbatipur": false, "Saidpur": true, "Nilphamari": false},
+      "Ishwardi Bypass": {"Azim Nagar": false, "Natore": true, "Santahar": true, "Joypurhat": true, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": false},
+      "Azim Nagar": {"Natore": false, "Santahar": true, "Joypurhat": false, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": false},
+      "Natore": {"Santahar": true, "Joypurhat": true, "Birampur": false, "Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": false},
+      "Santahar": {"Joypurhat": true, "Birampur": true, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": true},
+      "Joypurhat": {"Birampur": false, "Fulbari": true, "Parbatipur": true, "Saidpur": true, "Nilphamari": true},
+      "Birampur": {"Fulbari": false, "Parbatipur": true, "Saidpur": true, "Nilphamari": true},
+      "Fulbari": {"Parbatipur": false, "Saidpur": false, "Nilphamari": true},
+      "Parbatipur": {"Saidpur": false, "Nilphamari": true},
+      "Saidpur": {"Nilphamari": true}
+    }
+  },
+  "806": {
+    "train": "CHILAHATI EXPRESS (806)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Santahar": {"Natore": true, "Azim Nagar": false, "Ishwardi Bypass": true, "Joydebpur": false, "Dhaka": true},
+      "Natore": {"Azim Nagar": false, "Ishwardi Bypass": true, "Joydebpur": false, "Dhaka": true},
+      "Azim Nagar": {"Ishwardi Bypass": false, "Joydebpur": false, "Dhaka": true},
+      "Ishwardi Bypass": {"Joydebpur": false, "Dhaka": true},
+      "Joydebpur": {"Dhaka": true}
+    }
+  },
+  "809": {
+    "train": "BURIMARI EXPRESS (809)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Ishwardi Bypass": true, "Natore": true, "Santahar": true, "Bogura": true, "Mahimaganj": true, "Bonar Para": true, "Gaibandha": true, "Kaunia": true, "Kankina": true, "Tushbhandar": true, "Barkhata": true, "Patgram": true, "Burimari": true},
+      "Biman Bandar": {"Ishwardi Bypass": true, "Natore": false, "Santahar": false, "Bogura": false, "Mahimaganj": false, "Bonar Para": false, "Gaibandha": false, "Kaunia": false, "Kankina": false, "Tushbhandar": false, "Barkhata": false, "Patgram": false, "Burimari": false},
+      "Ishwardi Bypass": {"Natore": true, "Santahar": true, "Bogura": true, "Mahimaganj": false, "Bonar Para": true, "Gaibandha": true, "Kaunia": false, "Kankina": false, "Tushbhandar": false, "Barkhata": false, "Patgram": false, "Burimari": true},
+      "Natore": {"Santahar": true, "Bogura": true, "Mahimaganj": false, "Bonar Para": true, "Gaibandha": true, "Kaunia": false, "Kankina": false, "Tushbhandar": false, "Barkhata": false, "Patgram": false, "Burimari": true},
+      "Santahar": {"Bogura": true, "Mahimaganj": false, "Bonar Para": true, "Gaibandha": true, "Kaunia": true, "Kankina": false, "Tushbhandar": false, "Barkhata": false, "Patgram": true, "Burimari": true},
+      "Bogura": {"Mahimaganj": false, "Bonar Para": true, "Gaibandha": true, "Kaunia": true, "Kankina": false, "Tushbhandar": false, "Barkhata": false, "Patgram": true, "Burimari": true},
+      "Mahimaganj": {"Bonar Para": false, "Gaibandha": false, "Kaunia": false, "Kankina": false, "Tushbhandar": false, "Barkhata": false, "Patgram": false, "Burimari": false},
+      "Bonar Para": {"Bonar Para": false, "Gaibandha": true, "Kaunia": true, "Kankina": false, "Tushbhandar": false, "Barkhata": false, "Patgram": false, "Burimari": true},
+      "Gaibandha": {"Kaunia": false, "Kankina": false, "Tushbhandar": false, "Barkhata": false, "Patgram": false, "Burimari": false},
+      "Kaunia": {"Kankina": false, "Tushbhandar": false, "Barkhata": false, "Patgram": false, "Burimari": false},
+      "Kankina": {"Tushbhandar": false, "Barkhata": false, "Patgram": false, "Burimari": false},
+      "Tushbhandar": {"Barkhata": false, "Patgram": false, "Burimari": false},
+      "Barkhata": {"Patgram": false, "Burimari": false},
+      "Patgram": {"Burimari": false}
+    }
+  },
+  "814": {
+    "train": "COXS BAZAR EXPRESS (814)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Biman Bandar": true, "Chattogram": true, "Cox's Bazar": true},
+      "Biman Bandar": {"Chattogram": true, "Cox's Bazar": true},
+      "Chattogram": {"Cox's Bazar": false},
+      "chattogram": {"cox's bazar": true}
+    }
+  },
+  "816": {
+    "train": "",
+    "updated": "2026-10-04",
+    "allocation": {
+      "biman bandar": {"chattogram": true, "cox's bazar": true},
+      "chattogram": {"cox's bazar": true},
+      "dhaka": {"biman bandar": true, "chattogram": true, "cox's bazar": true}
+    }
+  },
+  "822": {
+    "train": "PROBAL EXPRESS (822)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Cox's Bazar": {"Ramu": true, "ISLAMABAD": true, "Dulahazara": true, "Chakaria": true, "HARBANG": true, "LOHAGARA": true, "Satkania": true, "Dohazari": true, "Patiya": true, "GOMDANDI": true, "Sholoshohor": true, "Chattogram": true},
+      "Ramu": {"ISLAMABAD": false, "Dulahazara": false, "Chakaria": false, "HARBANG": false, "LOHAGARA": false, "Satkania": false, "Dohazari": false, "Patiya": false, "GOMDANDI": false, "Sholoshohor": false, "Chattogram": true},
+      "ISLAMABAD": {"Dulahazara": false, "Chakaria": false, "HARBANG": false, "LOHAGARA": false, "Satkania": false, "Dohazari": false, "Patiya": false, "GOMDANDI": false, "Sholoshohor": false, "Chattogram": true},
+      "Dulahazara": {"Chakaria": false, "HARBANG": false, "LOHAGARA": false, "Satkania": false, "Dohazari": false, "Patiya": false, "GOMDANDI": false, "Sholoshohor": false, "Chattogram": true},
+      "Chakaria": {"HARBANG": false, "LOHAGARA": false, "Satkania": false, "Dohazari": false, "Patiya": false, "GOMDANDI": false, "Sholoshohor": false, "Chattogram": true},
+      "HARBANG": {"LOHAGARA": false, "Satkania": false, "Dohazari": false, "Patiya": false, "GOMDANDI": false, "Sholoshohor": false, "Chattogram": false},
+      "LOHAGARA": {"Satkania": false, "Dohazari": false, "Patiya": false, "GOMDANDI": false, "Sholoshohor": false, "Chattogram": true},
+      "Satkania": {"Dohazari": false, "Patiya": false, "GOMDANDI": false, "Sholoshohor": false, "Chattogram": true},
+      "Dohazari": {"Patiya": false, "GOMDANDI": false, "Sholoshohor": false, "Chattogram": true},
+      "Patiya": {"GOMDANDI": false, "Sholoshohor": false, "Chattogram": true},
+      "GOMDANDI": {"Sholoshohor": false, "Chattogram": true},
+      "Sholoshohor": {"Chattogram": false}
+    }
+  },
+  "826": {
+    "train": "JAHANABAD EXPRESS (826)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Bhanga Junction": true, "Kashiani": true, "Lohagora": true, "Narail": true, "Singia": true, "Noapara": true, "Khulna": true},
+      "Bhanga Junction": {"Kashiani": false, "Lohagora": false, "Narail": false, "Singia": false, "Noapara": false, "Khulna": true},
+      "Kashiani": {"Lohagora": false, "Narail": false, "Singia": false, "Noapara": false, "Khulna": true},
+      "Lohagora": {"Narail": false, "Singia": false, "Noapara": false, "Khulna": true},
+      "Narail": {"Singia": false, "Noapara": false, "Khulna": true},
+      "Singia": {"Noapara": false, "Khulna": true},
+      "Noapara": {"Khulna": true}
+    }
+  },
+  "828": {
+    "train": "RUPOSHI BANGLA EXPRESS (828)",
+    "updated": "2026-10-04",
+    "allocation": {
+      "Dhaka": {"Bhanga Junction": true, "Muksudpur": true, "Kashiani": true, "Narail": true, "Jashore": true, "Benapole": true},
+      "Bhanga Junction": {"Muksudpur": false, "Kashiani": true, "Narail": true, "Jashore": true, "Benapole": true},
+      "Muksudpur": {"Kashiani": false, "Narail": false, "Jashore": false, "Benapole": true},
+      "Kashiani": {"Narail": true, "Jashore": true, "Benapole": true},
+      "Narail": {"Jashore": true, "Benapole": true},
+      "Jashore": {"Benapole": true}
+    }
+  }
+}
