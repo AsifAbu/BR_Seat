@@ -1,7 +1,7 @@
 {
   "702": {
     "train": "SUBORNO EXPRESS (702)",
-    "updated": "2026-10-04",
+    "updated": "2026-10-05",
     "allocation": {
       "Dhaka": {"Biman Bandar": true, "Chattogram": true},
       "Biman Bandar": {"Chattogram": true}
@@ -297,7 +297,7 @@
   },
   "753": {
     "train": "SILKCITY EXPRESS (753)",
-    "updated": "2026-10-04",
+    "updated": "2026-10-05",
     "allocation": {
       "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Mirzapur": true, "Tangail": true, "Ibrahimabad": true, "SH M Monsur Ali": true, "Jamtail": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Abdulpur": true, "Rajshahi": true},
       "Biman Bandar": {"Tangail": true, "Ibrahimabad": false, "SH M Monsur Ali": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Rajshahi": true},
@@ -346,7 +346,7 @@
   },
   "755": {
     "train": "MADHUMATI EXPRESS (755)",
-    "updated": "2026-10-04",
+    "updated": "2026-10-05",
     "allocation": {
       "Dhaka": {"Sreenagar": true, "Mawa": true, "Padma": true, "Shibchar": true, "Bhanga": true, "Talma": true, "Faridpur": true, "Amirabad": true, "Pachuria": true, "Rajbari": true, "Kalukhali": true, "Pangsha": true, "Khoksha": true, "Kumarkhali": true, "Kushtia Court": true, "Poradaha": true, "Mirpur": true, "Bheramara": true, "Paksey": true, "Ishwardi": true, "Rajshahi": true},
       "Mawa": {"Kushtia Court": true, "Poradaha": true, "Rajshahi": true},
@@ -467,7 +467,7 @@
   },
   "759": {
     "train": "PADMA EXPRESS (759)",
-    "updated": "2026-10-04",
+    "updated": "2026-10-05",
     "allocation": {
       "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Tangail": true, "Ibrahimabad": true, "SH M Monsur Ali": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Abdulpur": true, "Sardah Road": true, "Rajshahi": true},
       "Biman Bandar": {"Tangail": true, "Ibrahimabad": false, "SH M Monsur Ali": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Rajshahi": true},
@@ -592,7 +592,7 @@
   },
   "769": {
     "train": "DHUMKETU EXPRESS (769)",
-    "updated": "2026-10-04",
+    "updated": "2026-10-05",
     "allocation": {
       "Dhaka": {"Biman Bandar": true, "Joydebpur": true, "Tangail": true, "Ibrahimabad": true, "SH M Monsur Ali": true, "Jamtail": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Abdulpur": true, "Arani": true, "Rajshahi": true},
       "Biman Bandar": {"Tangail": true, "Ibrahimabad": true, "SH M Monsur Ali": true, "Ullapara": true, "Boral Bridge": true, "Chatmohar": true, "Ishwardi Bypass": true, "Rajshahi": true},
@@ -794,7 +794,7 @@
   },
   "814": {
     "train": "COXS BAZAR EXPRESS (814)",
-    "updated": "2026-10-04",
+    "updated": "2026-10-05",
     "allocation": {
       "Dhaka": {"Biman Bandar": true, "Chattogram": true, "Cox's Bazar": true},
       "Biman Bandar": {"Chattogram": true, "Cox's Bazar": true},

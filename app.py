@@ -207,18 +207,19 @@ def parse_window(form):
             out.append(max(0, min(10, int(form.get(k, default)))))
         except ValueError:
             out.append(default)
-    return tuple(out)
+    return (*out, bool(form.get("split")))
 
 
 def scan_note(stats):
-    if stats.get("full_span"):
-        return (f"Minimized search: {stats['total']} station pairs near your stations instead of "
-                f"{stats['full_span']} for the full route; queried {stats['queried']}, skipping known no-quota pairs.")
-    skipped = stats["total"] - stats["queried"]
+    skipped = stats["considered"] - stats["queried"]
+    known = f", skipped {skipped} known to have no seat quota" if skipped > 0 else ""
+    if stats["minimized"]:
+        return (f"Minimized search: checked {stats['considered']} of the {stats['total']} station pairs on the train "
+                f"(near your stations + split legs); queried {stats['queried']}{known}. "
+                f"Cells marked · weren't checked.")
     if not skipped:
-        return f"Checked all {stats['total']} station pairs; the next search for this train will skip pairs with no seat quota."
-    return (f"Checked {stats['queried']} of {stats['total']} station pairs; skipped {skipped} "
-            f"with no seat quota on earlier scans.")
+        return f"Checked all {stats['considered']} station pairs; the next search will skip pairs with no seat quota."
+    return f"Checked all {stats['considered']} station pairs: queried {stats['queried']}{known}."
 
 
 def train_search(form, creds, ctx):
@@ -269,7 +270,10 @@ def route_search(form, creds, ctx):
         return render_template("index.html", error="Pick a date of journey.", **ctx)
 
     job_id, matrix_error = None, credentials_problem(creds)
-    query = {"from": src["label"], "to": dst["label"], "date": journey_date, "seat": seat}
+    window = parse_window(form)
+    query = {"from": src["label"], "to": dst["label"], "date": journey_date, "seat": seat,
+             # False only when a minimized search skipped the split legs
+             "minimized_split": window[4] if window else True}
     if not matrix_error:
         def render(job):
             trains, stats = job["result"]
@@ -283,7 +287,6 @@ def route_search(form, creds, ctx):
                                          hidden=len(trains) - len(shown), scan_note=scan_note(stats))
 
         full = bool(form.get("full"))
-        window = parse_window(form)
         try:
             job_id = start_job(("route", login_id(creds), src["name"], dst["name"], journey_date, seat, full, window), 1,
                                lambda p, c: shohoz.search_route(src["name"], dst["name"], journey_date, seat,
@@ -316,6 +319,7 @@ def index():
         "seat_types": SEAT_TYPES,
         # ticked by default: only an actual route-search submit can untick it
         "minimize_on": form.get("mode") != "route" or bool(form.get("minimize")),
+        "split_on": form.get("mode") != "route" or bool(form.get("split")),
         "window": {k: form.get(k, v) for k, v in WINDOW_DEFAULTS.items()},
     }
     if request.method == "GET":

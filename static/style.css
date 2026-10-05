@@ -36,7 +36,7 @@ body {
 .layout.has-result { max-width: none; grid-template-columns: 340px minmax(0, 1fr); align-items: start; gap: 20px; }
 .layout.home { max-width: 1500px; grid-template-columns: 400px minmax(0, 1fr); align-items: start; }
 @media (min-width: 961px) { .home .search { position: sticky; top: 24px; } }
-@media (max-width: 960px) { .layout.has-result, .layout.home { grid-template-columns: 1fr; } }
+@media (max-width: 960px) { .layout.has-result, .layout.home { grid-template-columns: minmax(0, 1fr); } }
 
 .card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; }
 
@@ -311,3 +311,41 @@ a.tr-direct:hover { box-shadow: 0 0 0 3px rgba(255,255,255,.35); }
 .visits-grid b { font-size: 1.15rem; font-weight: 800; color: var(--ink); line-height: 1.2; }
 .visits-grid span { font-size: .72rem; color: var(--muted); }
 .login-box .remember { margin-top: 8px; }
+
+/* ───────── full grid states, legend, split options ───────── */
+.matrix.grid td.na { background: repeating-linear-gradient(135deg, var(--stop-bg) 0 5px, color-mix(in srgb, var(--muted) 12%, var(--stop-bg)) 5px 10px); }
+.matrix.grid td.none, .matrix.grid td.skip { color: var(--muted); font-weight: 700; }
+.matrix.grid td.skip { opacity: .7; }
+.matrix td.target > span { display: block; outline: 2.5px solid #f59f00; outline-offset: -2px; border-radius: 6px; line-height: 34px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 4px 0 0; font-size: .78rem; color: var(--muted); width: 100%; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend b { display: inline-grid; place-items: center; min-width: 22px; height: 18px; border-radius: 4px; border: 1px solid var(--line); font-size: .75rem; }
+.lg-seats { background: var(--mint); color: var(--ink); }
+.lg-zero { background: var(--mint); color: var(--ink); opacity: .45; }
+.lg-na { background: repeating-linear-gradient(135deg, var(--stop-bg) 0 3px, color-mix(in srgb, var(--muted) 20%, var(--stop-bg)) 3px 6px); }
+.lg-target { outline: 2px solid #f59f00; outline-offset: -2px; }
+.splits { width: 100%; display: grid; gap: 8px; background: var(--mint); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.splits-title { margin: 0; font-weight: 700; color: var(--ink); display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+.splits-title small { font-weight: 400; color: var(--muted); font-size: .78rem; }
+.split-direct { margin: 0; color: var(--ink); font-weight: 600; }
+.split { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; font-size: .88rem; }
+.split-n { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--green); color: #fff; font-size: .75rem; font-weight: 700; }
+.split .leg b { color: var(--ink); margin-right: 4px; }
+.split a, .split-direct a { margin-left: 6px; background: var(--green); color: #fff; text-decoration: none; border-radius: 5px; padding: 2px 8px; font-size: .78rem; font-weight: 600; white-space: nowrap; }
+.split .plus { color: var(--muted); font-weight: 700; }
+.split-total { margin-left: auto; font-weight: 800; color: var(--ink); }
+.split-check { grid-column: 1 / -1; margin-top: 4px; }
+.window .split-check input[type=checkbox] { width: 16px; flex: none; padding: 0; }
+.window .split-check { color: var(--text); align-items: flex-start; }
+
+/* split options collapse: closed by default, click the header to open */
+details.splits { gap: 0; }
+details.splits[open] { gap: 8px; }
+.splits > summary { list-style: none; cursor: pointer; align-items: center; }
+.splits > summary::-webkit-details-marker { display: none; }
+.split-count { background: var(--green); color: #fff; border-radius: 999px; padding: 1px 9px; font-size: .75rem; font-weight: 700; }
+.splits .chev { color: var(--muted); transition: transform .2s; }
+.splits[open] .chev { transform: rotate(180deg); }
+.split-group { margin: 6px 0 0; font-weight: 700; color: var(--ink); font-size: .9rem; }
+.split-group small { font-weight: 400; color: var(--muted); margin-left: 6px; }
+.split-note { margin: 4px 0 0; display: flex; gap: 6px; align-items: center; }

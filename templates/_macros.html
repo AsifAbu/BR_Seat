@@ -45,34 +45,47 @@
 {% endmacro %}
 
 
-{# Seat matrix table: rows are boarding stations, columns alighting stations. #}
+{# Full-train seat grid: every stop on both axes. Cell states come from shohoz._grid. #}
 {% macro matrix_table(m, target=None) %}
-{% set cols = m.col_stations %}
+{% set st = m.stations %}
 <div class="scroll">
-  <table class="matrix" style="--cols: {{ cols|length }}">
-    <colgroup><col class="row-head">{% for st in cols %}<col>{% endfor %}</colgroup>
+  <table class="matrix grid" style="--cols: {{ st|length }}">
+    <colgroup><col class="row-head">{% for x in st %}<col>{% endfor %}</colgroup>
     <thead>
-      <tr><th class="corner">From ↓ &nbsp;To →</th>{% for st in cols %}<th><span>{{ st|replace('_', ' ') }}</span></th>{% endfor %}</tr>
+      <tr><th class="corner">From ↓ &nbsp;To →</th>{% for x in st %}<th><span>{{ x|replace('_', ' ') }}</span></th>{% endfor %}</tr>
     </thead>
     <tbody>
       {% for row in m.rows %}
-      {% set from = m.row_stations[loop.index0] %}
+      {% set from = st[loop.index0] %}
       <tr>
         <th>{{ from|replace('_', ' ') }}</th>
         {% for c in row %}
-          <td{% if target and from == target[0] and cols[loop.index0] == target[1] %} class="target"{% endif %}>{% if c %}
+          {% set to = st[loop.index0] %}
+          {% set is_target = target and from == target[0] and to == target[1] %}
+          {% if c.state == 'na' %}<td class="na"></td>
+          {% elif c.state == 'skip' %}<td class="skip{% if is_target %} target{% endif %}"><span title="{{ from }} → {{ to }} · not checked">·</span></td>
+          {% elif c.state == 'none' %}<td class="none{% if is_target %} target{% endif %}"><span title="{{ from }} → {{ to }} · no seat quota">–</span></td>
+          {% else %}<td{% if is_target %} class="target"{% endif %}>
             {% if c.seats > 0 %}
-            <a class="cell" href="{{ c.buy }}" target="_blank" rel="noopener" title="Buy {{ from }} → {{ cols[loop.index0] }} · {{ c.seats }} seats · ৳{{ c.fare }}">
+            <a class="cell" href="{{ c.buy }}" target="_blank" rel="noopener" title="Buy {{ from }} → {{ to }} · {{ c.seats }} seats · ৳{{ c.fare }}">
             {% else %}
-            <span class="cell empty" title="{{ from }} → {{ cols[loop.index0] }} · sold out">
+            <span class="cell empty" title="{{ from }} → {{ to }} · sold out">
             {% endif %}
               <b>{{ c.seats }}</b><small>৳{{ c.fare }}</small>
             {% if c.seats > 0 %}</a>{% else %}</span>{% endif %}
-          {% endif %}</td>
+          </td>{% endif %}
         {% endfor %}
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
+<p class="legend">
+  <span><b class="lg-seats">8</b> seats · click to buy</span>
+  <span><b class="lg-zero">0</b> quota, sold out now</span>
+  <span><b class="lg-none">–</b> no seat quota</span>
+  <span><b class="lg-skip">·</b> not checked</span>
+  <span><b class="lg-na"></b> not possible</span>
+  {% if target %}<span><b class="lg-target"></b> your From → To</span>{% endif %}
+</p>
 {% endmacro %}

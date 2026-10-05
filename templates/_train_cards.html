@@ -37,6 +37,37 @@
 
   <div class="tr-matrix">
     {% if t.matrix %}
+      {% set n_splits = t.splits | sum(attribute='found') %}
+      <details class="splits">
+        <summary class="splits-title"><i class="fa-solid fa-code-branch"></i> Split options
+          <span class="split-count">{{ n_splits }} found</span>
+          <small>{{ t.from|replace('_', ' ') }} → {{ t.to|replace('_', ' ') }} on 2 to 4 tickets, every leg with seats · fewest tickets first, then cheapest</small>
+          <i class="fa-solid fa-chevron-down chev end"></i></summary>
+        {% if t.direct and t.direct.seats > 0 %}
+          <p class="split-direct"><i class="fa-solid fa-circle-check"></i> Direct ticket available: {{ t.direct.seats }} seats · ৳{{ t.direct.fare }}
+            <a href="{{ t.direct.buy }}" target="_blank" rel="noopener">Buy</a></p>
+        {% endif %}
+        {% for g in t.splits if g.found %}
+          <p class="split-group">{{ g.tickets }} tickets <small>{{ g.found }} found{% if g.found > g.options|length %}, showing cheapest {{ g.options|length }}{% endif %}</small></p>
+          {% for o in g.options %}
+          <div class="split">
+            <span class="split-n">{{ loop.index }}</span>
+            {% for l in o.legs %}
+              {% if not loop.first %}<span class="plus">+</span>{% endif %}
+              <span class="leg"><b>{{ l.from|replace('_', ' ') }} → {{ l.to|replace('_', ' ') }}</b> {{ l.seats }} seats · ৳{{ l.fare }}
+                <a href="{{ l.buy }}" target="_blank" rel="noopener">Buy leg {{ loop.index }}</a></span>
+            {% endfor %}
+            <span class="split-total">= ৳{{ o.total }}</span>
+          </div>
+          {% endfor %}
+        {% endfor %}
+        {% if not n_splits %}
+          <p class="meta">No journey on 2 to 4 tickets with seats on every leg{% if query.minimized_split == false %} (split legs weren't checked; tick "Include split-ticket options"){% endif %}.</p>
+        {% endif %}
+        {% if t.minimized %}
+          <p class="meta split-note"><i class="fa-solid fa-circle-info"></i> Minimize search is on, so most middle stations weren't checked. Turn it off to find every 3 to 4 ticket journey.</p>
+        {% endif %}
+      </details>
       <p class="meta">
         <span class="pill seat"><i class="fa-solid fa-chair"></i> {{ query.seat }}</span>
         {{ t.matrix.total_seats }} seats across {{ t.matrix.stations|length }} stations ·

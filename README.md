@@ -10,7 +10,9 @@ The official site only answers one from/to question at a time. This app asks all
 
 - **Search by Train**: train + date, full matrix for every seat class.
 - **Search by Route**: From, To, date and one seat class; one colour-coded card per train running that day, each with its own matrix and an expandable route timeline.
-- **Minimize search** (route mode, on by default): only checks stations near your From and To (default 3 before/after From, 5 before/after To) instead of the whole line. Dhaka → Rajshahi drops from 368 pairs to 64.
+- **Full-train grid**: every stop of the train on both axes, in route order. Each cell shows seats (`8`), sold out (`0`), no seat quota (`–`), not checked (`·`), or is greyed out (same station / backwards).
+- **Minimize search** (route mode, on by default): only checks stations near your From and To (default 3 before/after From, 5 before/after To) plus, optionally, the **split legs** (From → every stop in between, every stop in between → To). The rest of the grid shows `·`. If the window would cover the whole train anyway, it runs a full check.
+- **Split options**: per train, the cheapest two-ticket journeys From → X → To where both legs have seats, with Buy links for each leg.
 - **Allocation learning**: after a train is scanned once, station pairs with no seat quota are remembered and skipped next time.
 - **Rate-limit safe**: paces requests to 45/min, survives restarts, and if Shohoz still returns 429 it waits out the ~10 minute lockout and resumes.
 - Background jobs with a progress bar, ETA and a **Cancel** button.
@@ -38,7 +40,7 @@ The official site only answers one from/to question at a time. This app asks all
 
 1. **One search answers every train on that segment.** The response lists all trains running from→to that day, with every seat class. Route searches key results by `(from, to, date)` and share them across trains, so overlapping lines cost one call, not one per train.
 2. **Learn where quota exists.** An empty matrix cell means the train didn't appear in that pair's results, i.e. no allocation. A `0` means it appeared but is sold out. Empty pairs are stored as `false` in `data/allocations.json` and skipped next time; `0` pairs are still queried since cancellations free seats.
-3. **Minimize search** restricts route mode to a window around your stations, counted along each train's own stops.
+3. **Minimize search** restricts route mode to a window around your stations, counted along each train's own stops, plus the split legs `From → x` and `x → To` for every stop `x` in between (about 2 queries per stop, versus N² for the full grid). Split options are computed from those cells, so they cost no extra calls.
 4. **Pace, don't burst into a lockout.** A process-wide sliding-window limiter (45 requests / 60s) gates every search request across all jobs. Its history and any active 429 pause are persisted to `data/ratelimit.json`, so a restart doesn't reset the budget.
 
 ### Dates on overnight trains
@@ -66,7 +68,7 @@ The search date is the date the train leaves *your boarding station*, not its or
 | Route | Purpose |
 |---|---|
 | `GET /` | Home page with the train list |
-| `POST /` | Run a search. `mode=train` (`train`, `date`) or `mode=route` (`from`, `to`, `rdate`, `seat`, optional `minimize`, `fb`, `fa`, `tb`, `ta`). Optional `full=on` forces a full re-check; optional `token` carries a pasted cURL. |
+| `POST /` | Run a search. `mode=train` (`train`, `date`) or `mode=route` (`from`, `to`, `rdate`, `seat`, optional `minimize`, `fb`, `fa`, `tb`, `ta`, `split`). Optional `full=on` forces a full re-check; optional `token` carries a pasted cURL. |
 | `GET /job/<id>` | Progress JSON: `done`, `total`, `waiting` (epoch seconds of resume time during a 429 pause), and `html` + `error` once finished |
 | `POST /job/<id>/cancel` | Stop a job before its next API request |
 

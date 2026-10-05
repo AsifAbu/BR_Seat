@@ -311,42 +311,102 @@ def fetch_segments(session, segments, seat_class="S_CHAIR", progress=None, done_
             raise
 
 
-def _pivot(stops, seat_types_by_pair, only_type=None):
-    """{(i, j): seat_types} -> one matrix per seat class (or just only_type)."""
-    by_class = {}
-    for (i, j), seat_types in seat_types_by_pair.items():
-        for st in seat_types:
-            if only_type and st["type"] != only_type:
-                continue
-            fare = float(st.get("fare") or 0) + float(st.get("vat_amount") or 0)
-            by_class.setdefault(st["type"], {})[(i, j)] = {
-                "seats": (st.get("seat_counts") or {}).get("online", 0),
-                "fare": round(fare),
-                "buy": requests.Request("GET", BUY_URL, params={
-                    "fromcity": stops[i]["city"],
-                    "tocity": stops[j]["city"],
-                    "doj": stops[i]["date"].strftime("%d-%b-%Y"),
-                    "class": st["type"],
-                }).prepare().url,
-            }
+def _buy_url(stops, i, j, seat_type):
+    return requests.Request("GET", BUY_URL, params={
+        "fromcity": stops[i]["city"], "tocity": stops[j]["city"],
+        "doj": stops[i]["date"].strftime("%d-%b-%Y"), "class": seat_type,
+    }).prepare().url
 
+
+def _grid(stops, model, results, considered, only_type=None):
+    """Full-train grid(s): every stop on both axes, one grid per seat class.
+
+    results     {seg_key: trains list, or None if that request failed}
+    considered  pairs this search meant to cover; those missing from results
+                were skipped because they're learned as having no quota.
+
+    Each cell is a dict with "state":
+      na    same station or travelling backwards
+      seats train sells this class here: "seats" (0 = sold out), "fare", "buy"
+      none  no seat quota (train not listed, class absent, or learned no-quota)
+      skip  not checked (outside a minimized window, or the request failed)
+    """
+    n = len(stops)
+    info = {}  # (i, j) -> list of seat_types the train has there ([] = no quota)
+    for i in range(n):
+        for j in range(i + 1, n):
+            key = _seg_key(stops[i]["city"], stops[j]["city"], stops[i]["date"])
+            if results.get(key) is not None:
+                train = _find_train(results[key], model)
+                info[(i, j)] = train.get("seat_types", []) if train else []
+            elif (i, j) in considered and key not in results:
+                info[(i, j)] = []
+    classes = [only_type] if only_type else sorted({st["type"] for v in info.values() for st in v})
     matrices = []
-    for seat_type, cells in by_class.items():
-        # Rows are boarding stations and columns alighting stations that actually
-        # sell this class, so a full route gives the usual triangle and a
-        # minimized search a compact From-side x To-side grid.
-        froms = sorted({i for i, _ in cells})
-        tos = sorted({j for _, j in cells})
-        matrices.append({
-            "seat_type": seat_type,
-            "stations": [stops[k]["city"] for k in sorted(set(froms) | set(tos))],
-            "row_stations": [stops[i]["city"] for i in froms],
-            "col_stations": [stops[j]["city"] for j in tos],
-            "rows": [[cells.get((i, j)) for j in tos] for i in froms],
-            "total_seats": sum(c["seats"] for c in cells.values()),
-        })
+    for cls in classes:
+        rows, total, any_quota = [], 0, False
+        for i in range(n):
+            row = []
+            for j in range(n):
+                if j <= i:
+                    row.append({"state": "na"})
+                    continue
+                seat_types = info.get((i, j))
+                st = next((x for x in seat_types or [] if x["type"] == cls), None)
+                if seat_types is None:
+                    row.append({"state": "skip"})
+                elif st is None:
+                    row.append({"state": "none"})
+                else:
+                    seats = (st.get("seat_counts") or {}).get("online", 0)
+                    fare = round(float(st.get("fare") or 0) + float(st.get("vat_amount") or 0))
+                    row.append({"state": "seats", "seats": seats, "fare": fare, "buy": _buy_url(stops, i, j, cls)})
+                    total += seats
+                    any_quota = True
+            rows.append(row)
+        if any_quota:
+            matrices.append({"seat_type": cls, "stations": [x["city"] for x in stops],
+                             "rows": rows, "total_seats": total})
     matrices.sort(key=lambda m: -m["total_seats"])
     return matrices
+
+
+def split_options(matrix, a, b, max_tickets=4, limit=5):
+    """Journeys a -> ... -> b on 2..max_tickets tickets, using only grid cells that
+    have seats (> 0). Stations must run forwards; no extra API calls.
+
+    Returns one group per ticket count, fewest tickets first:
+      [{"tickets": 2, "found": n, "options": [{"legs": [...], "total": fare}, ...]}, ...]
+    Options within a group are cheapest first (ties: more seats on the tightest leg).
+    """
+    rows, names = matrix["rows"], matrix["stations"]
+
+    def ok(i, j):
+        c = rows[i][j]
+        return c["state"] == "seats" and c["seats"] > 0
+
+    found = {k: [] for k in range(2, max_tickets + 1)}
+
+    def walk(i, path):  # path = station indices so far, starting with a
+        for j in range(i + 1, b + 1):
+            if not ok(i, j):
+                continue
+            if j == b:
+                if len(path) >= 2:  # at least 2 tickets; a single a->b leg is the direct ticket
+                    found[len(path)].append(path + [b])
+            elif len(path) < max_tickets:
+                walk(j, path + [j])
+
+    walk(a, [a])
+    groups = []
+    for k, paths in found.items():
+        options = []
+        for path in paths:
+            legs = [dict(rows[x][y], **{"from": names[x], "to": names[y]}) for x, y in zip(path, path[1:])]
+            options.append({"legs": legs, "total": sum(l["fare"] for l in legs)})
+        options.sort(key=lambda o: (o["total"], -min(l["seats"] for l in o["legs"])))
+        groups.append({"tickets": k, "found": len(options), "options": options[:limit]})
+    return groups
 
 
 class _Allocations:
@@ -483,7 +543,7 @@ def _collect(model, stops, pairs, segments, results):
 
 
 def build_matrix(model, route, creds, progress=None, full=False, cancel=None):
-    """From->to pairs on one train's route, one matrix per seat class.
+    """Every pair on one train's route, one full grid per seat class.
 
     Only pairs with a known seat allocation are queried unless full=True or the
     train hasn't been scanned yet. Returns (matrices, stats).
@@ -493,38 +553,45 @@ def build_matrix(model, route, creds, progress=None, full=False, cancel=None):
     pairs = _allocated(model, stops, all_pairs, full)
     segments = [(stops[i]["city"], stops[j]["city"], stops[i]["date"]) for i, j in pairs]
     results = fetch_segments(_session(creds), segments, progress=progress, cancel=cancel)
-    by_pair, checked, sold = _collect(model, stops, pairs, segments, results)
+    _, checked, sold = _collect(model, stops, pairs, segments, results)
     allocations.learn(model, route["train_name"], [x["city"] for x in stops], checked, sold, replace=full)
     allocations.flush()
-    stats = {"queried": len(pairs), "total": len(all_pairs)}
-    return _pivot(stops, by_pair), stats
+    stats = {"queried": len(pairs), "considered": len(all_pairs), "total": len(all_pairs), "minimized": False}
+    return _grid(stops, model, results, set(all_pairs)), stats
 
 
 def _window_pairs(n, a, b, window):
-    """Minimized search: boarding stops around a x alighting stops around b.
+    """Minimized search pairs, counted along this train's own stops.
 
-    window = (from_before, from_after, to_before, to_after), counted in this
-    train's own stops. Pairs must still run forwards (boarding before alighting).
+    window = (from_before, from_after, to_before, to_after, split):
+      - boarding stops around a x alighting stops around b
+      - split=True adds a->x and x->b for every stop x in between, i.e. every
+        two-ticket journey from your From to your To
+      - your exact a->b is always included
+    Pairs must run forwards (boarding before alighting).
     """
-    fb, fa, tb, ta = window
+    fb, fa, tb, ta, split = window
     boards = range(max(0, a - fb), min(n, a + fa + 1))
     alights = range(max(0, b - tb), min(n, b + ta + 1))
-    return [(i, j) for i in boards for j in alights if i < j]
+    pairs = {(i, j) for i in boards for j in alights if i < j} | {(a, b)}
+    if split:
+        pairs |= {(a, x) for x in range(a + 1, b)} | {(x, b) for x in range(a + 1, b)}
+    return sorted(pairs)
 
 
 def search_route(origin, dest, journey_date, seat_class, creds, progress=None, full=False, cancel=None,
                  window=None):
-    """Every train running origin->dest on journey_date, each with a seat matrix for
-    seat_class. Without a window the matrix covers every station between origin
-    and dest; with one (see _window_pairs) only stations near each end.
-    Returns (trains, stats)."""
+    """Every train running origin->dest on journey_date, each with a full-train
+    grid for seat_class. Without a window every pair on the train is checked;
+    with one (see _window_pairs) only pairs near From/To (+ split legs), and the
+    rest of the grid shows as not checked. Returns (trains, stats)."""
     session = _session(creds)
     if progress:
         progress(0, 1, False)
     trains = search_trips(session, origin, dest, journey_date, seat_class, cancel=cancel) or []
     known = {_seg_key(origin, dest, journey_date): trains}
 
-    plans = []
+    plans, minimized = [], False
     for t in trains:
         model = str(t.get("train_model") or parse_model(t.get("trip_number", "")) or "")
         parent = t.get("parent_route") or {}
@@ -535,64 +602,66 @@ def search_route(origin, dest, journey_date, seat_class, creds, progress=None, f
         if cancel is not None and cancel.is_set():
             raise Cancelled()
         route = get_route(model, origin_date)
-        names = [norm_station(s["city"]) for s in route["stops"]]
+        stops = route["stops"]
+        names = [norm_station(x["city"]) for x in stops]
         try:
             a, b = names.index(norm_station(origin)), names.index(norm_station(dest))
         except ValueError:
             continue
         if a >= b:
             continue
-        stops = route["stops"]
-        span_pairs, _ = _span_segments(stops, a, b)
-        pairs = _window_pairs(len(stops), a, b, window) if window else span_pairs
+        all_pairs, _ = _span_segments(stops, 0, len(stops) - 1)
+        pairs = all_pairs
+        if window:
+            win = _window_pairs(len(stops), a, b, window)
+            if len(win) < len(all_pairs):  # a window bigger than the whole train isn't "minimized"
+                pairs, minimized = win, True
         segments = [(stops[i]["city"], stops[j]["city"], stops[i]["date"]) for i, j in pairs]
         needed = set(_allocated(model, stops, pairs, full))
-        span_keys = {_seg_key(stops[i]["city"], stops[j]["city"], stops[i]["date"]) for i, j in span_pairs}
-        plans.append((t, model, route, a, b, pairs, segments, needed, span_keys))
+        all_keys = {_seg_key(stops[i]["city"], stops[j]["city"], stops[i]["date"]) for i, j in all_pairs}
+        plans.append((t, model, route, a, b, pairs, segments, needed, all_keys))
 
     # Trains on the same line share most segments, so query each one only once,
     # and only where at least one train is known (or not yet known) to sell it.
-    todo, every, full_span = {}, set(), set()
-    for t, model, route, a, b, pairs, segments, needed, span_keys in plans:
-        full_span |= span_keys
+    todo, considered_keys, every_key = {}, set(), set()
+    for t, model, route, a, b, pairs, segments, needed, all_keys in plans:
+        every_key |= all_keys
         for pair, seg in zip(pairs, segments):
-            every.add(_seg_key(*seg))
+            considered_keys.add(_seg_key(*seg))
             if pair in needed and _seg_key(*seg) not in known:
                 todo.setdefault(_seg_key(*seg), seg)
     known.update(fetch_segments(session, todo.values(), seat_class, progress,
                                 done_offset=1, total=len(todo) + 1, cancel=cancel))
 
     results = []
-    for t, model, route, a, b, pairs, segments, needed, _ in plans:
-        by_pair, checked, sold = _collect(model, route["stops"], pairs, segments, known)
+    for t, model, route, a, b, pairs, segments, needed, all_keys in plans:
+        stops = route["stops"]
+        _, checked, sold = _collect(model, stops, pairs, segments, known)
         # A route scan covers only part of the train's line, so merge rather than replace.
-        allocations.learn(model, route["train_name"], [x["city"] for x in route["stops"]], checked, sold)
-        direct = next((st for st in t.get("seat_types", []) if st["type"] == seat_class), None)
+        allocations.learn(model, route["train_name"], [x["city"] for x in stops], checked, sold)
+        matrix = next(iter(_grid(stops, model, known, set(pairs), only_type=seat_class)), None)
+        direct = matrix and matrix["rows"][a][b]
         results.append({
             "trip_number": t.get("trip_number"),
             "model": model,
             "departure": t.get("departure_date_time"),
             "arrival": t.get("arrival_date_time"),
             "travel_time": t.get("travel_time"),
-            "from": route["stops"][a]["city"],
-            "to": route["stops"][b]["city"],
-            "direct": direct and {
-                "seats": (direct.get("seat_counts") or {}).get("online", 0),
-                "fare": round(float(direct.get("fare") or 0) + float(direct.get("vat_amount") or 0)),
-                "buy": requests.Request("GET", BUY_URL, params={
-                    "fromcity": origin, "tocity": dest,
-                    "doj": journey_date.strftime("%d-%b-%Y"), "class": seat_class,
-                }).prepare().url,
-            },
+            "from": stops[a]["city"],
+            "to": stops[b]["city"],
+            "direct": direct if direct and direct["state"] == "seats" else None,
+            "splits": split_options(matrix, a, b) if matrix else [],
+            "minimized": len(pairs) < len(all_keys),  # middle-to-middle legs mostly unchecked
             "route": route,
             "board": a,
             "alight": b,
             # stops outside this range are dimmed in the route timeline
-            "span": (min([a] + [i for i, _ in pairs]), max([b] + [j for _, j in pairs])),
-            "matrix": next(iter(_pivot(route["stops"], by_pair, only_type=seat_class)), None),
+            "span": (min(i for i, _ in pairs), max(j for _, j in pairs)),
+            "matrix": matrix,
         })
     allocations.flush()  # one write per job, after every train is merged
     direct_key = _seg_key(origin, dest, journey_date)
-    stats = {"queried": len(todo) + 1, "total": len(every | {direct_key}),
-             "full_span": len(full_span | {direct_key}) if window else None}
+    # counts are distinct segments across all trains (shared segments are queried once)
+    stats = {"queried": len(todo) + 1, "considered": len(considered_keys | {direct_key}),
+             "total": len(every_key | {direct_key}), "minimized": minimized}
     return results, stats
