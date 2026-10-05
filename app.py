@@ -270,10 +270,10 @@ def route_search(form, creds, ctx):
         return render_template("index.html", error="Pick a date of journey.", **ctx)
 
     job_id, matrix_error = None, credentials_problem(creds)
-    window = parse_window(form)
+    window = parse_window(form)          # None when Minimize is off
+    show_splits = bool(form.get("split"))  # independent of Minimize
     query = {"from": src["label"], "to": dst["label"], "date": journey_date, "seat": seat,
-             # False only when a minimized search skipped the split legs
-             "minimized_split": window[4] if window else True}
+             "show_splits": show_splits}
     if not matrix_error:
         def render(job):
             trains, stats = job["result"]
@@ -288,7 +288,8 @@ def route_search(form, creds, ctx):
 
         full = bool(form.get("full"))
         try:
-            job_id = start_job(("route", login_id(creds), src["name"], dst["name"], journey_date, seat, full, window), 1,
+            job_id = start_job(("route", login_id(creds), src["name"], dst["name"], journey_date, seat, full, window,
+                                show_splits), 1,
                                lambda p, c: shohoz.search_route(src["name"], dst["name"], journey_date, seat,
                                                                 creds, p, full, c, window),
                                render)

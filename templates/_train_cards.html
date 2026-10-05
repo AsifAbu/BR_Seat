@@ -37,6 +37,7 @@
 
   <div class="tr-matrix">
     {% if t.matrix %}
+      {% if query.show_splits %}
       {% set n_splits = t.splits | sum(attribute='found') %}
       <details class="splits">
         <summary class="splits-title"><i class="fa-solid fa-code-branch"></i> Split options
@@ -62,12 +63,13 @@
           {% endfor %}
         {% endfor %}
         {% if not n_splits %}
-          <p class="meta">No journey on 2 to 4 tickets with seats on every leg{% if query.minimized_split == false %} (split legs weren't checked; tick "Include split-ticket options"){% endif %}.</p>
+          <p class="meta">No journey on 2 to 4 tickets with seats on every leg.</p>
         {% endif %}
         {% if t.minimized %}
           <p class="meta split-note"><i class="fa-solid fa-circle-info"></i> Minimize search is on, so most middle stations weren't checked. Turn it off to find every 3 to 4 ticket journey.</p>
         {% endif %}
       </details>
+      {% endif %}
       <p class="meta">
         <span class="pill seat"><i class="fa-solid fa-chair"></i> {{ query.seat }}</span>
         {{ t.matrix.total_seats }} seats across {{ t.matrix.stations|length }} stations ·

@@ -349,3 +349,15 @@ details.splits[open] { gap: 8px; }
 .split-group { margin: 6px 0 0; font-weight: 700; color: var(--ink); font-size: .9rem; }
 .split-group small { font-weight: 400; color: var(--muted); margin-left: 6px; }
 .split-note { margin: 4px 0 0; display: flex; gap: 6px; align-items: center; }
+.split-box { margin-top: 0; }
+
+/* Desktop: the search panel stays in view and scrolls on its own when it's
+   taller than the window, instead of hiding its lower half off-screen. */
+@media (min-width: 961px) {
+  .home .search, .has-result .search {
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;   /* scrolling the panel doesn't drag the page */
+    scrollbar-width: thin;
+  }
+}

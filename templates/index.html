@@ -109,11 +109,13 @@
               <span class="win-label"><i class="fa-solid fa-location-dot to"></i> To</span>
               <label>before <input type="number" name="tb" min="0" max="10" value="{{ window.tb }}"></label>
               <label>after <input type="number" name="ta" min="0" max="10" value="{{ window.ta }}"></label>
-              <label class="check split-check">
-                <input type="checkbox" name="split" {% if split_on %}checked{% endif %}>
-                <span>Include split-ticket options <small>Also checks From → every stop in between → To (2 tickets)</small></span>
-              </label>
             </div>
+          </div>
+          <div class="minimize split-box">
+            <label class="check">
+              <input type="checkbox" name="split" id="split" {% if split_on %}checked{% endif %}>
+              <span>Split-ticket options <small>Find journeys on 2 to 4 tickets when the direct ticket is sold out. With Minimize on, also checks From → every stop → To.</small></span>
+            </label>
           </div>
         </div>
       </details>
