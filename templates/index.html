@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <main class="layout {% if results %}has-result{% else %}home{% endif %}">
@@ -122,12 +123,56 @@
 
       <details class="login-box">
         <summary><i class="fa-solid fa-key"></i> Login <small id="login-state">optional if .env is filled</small><i class="fa-solid fa-chevron-down chev end"></i></summary>
-        <p class="hint">DevTools → Network → <code>search-trips-v2</code> → Copy as cURL, then paste here.</p>
-        <textarea name="token" id="token" rows="3" spellcheck="false" placeholder="curl --url 'https://railspaapi.shohoz.com/…' -H 'Authorization: Bearer …' -H 'X-Device-Key: …' -H 'X-Device-Id: …'"></textarea>
-        <label class="check remember">
-          <input type="checkbox" id="remember-login">
-          <span>Remember login on this browser <small>Off: forgotten when this tab closes. Don't tick on shared computers.</small></span>
-        </label>
+
+        <!-- Method toggle -->
+        <div class="login-tabs" role="tablist">
+          <button type="button" class="login-tab active" id="tab-curl" role="tab" aria-selected="true" aria-controls="login-curl-panel" data-tab="curl">
+            <i class="fa-solid fa-terminal"></i> cURL
+          </button>
+          <button type="button" class="login-tab" id="tab-cred" role="tab" aria-selected="false" aria-controls="login-cred-panel" data-tab="cred">
+            <i class="fa-solid fa-user-lock"></i> Credentials
+          </button>
+        </div>
+
+        <!-- cURL panel -->
+        <div id="login-curl-panel" role="tabpanel">
+          <p class="hint">DevTools → Network → <code>search-trips-v2</code> → Copy as cURL, then paste here.</p>
+          <textarea name="token" id="token" rows="3" spellcheck="false" placeholder="curl --url 'https://railspaapi.shohoz.com/…' -H 'Authorization: Bearer …' -H 'X-Device-Key: …' -H 'X-Device-Id: …'"></textarea>
+          <label class="check remember">
+            <input type="checkbox" id="remember-login">
+            <span>Remember login on this browser <small>Off: forgotten when this tab closes. Don't tick on shared computers.</small></span>
+          </label>
+        </div>
+
+        <!-- Credentials panel -->
+        <div id="login-cred-panel" role="tabpanel" hidden>
+          <div id="cred-logged-in" hidden>
+            <div class="cred-success-badge">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Logged in as <b id="cred-user-name"></b></span>
+              <button type="button" class="cred-logout-btn" id="cred-logout">Logout</button>
+            </div>
+          </div>
+          <div id="cred-login-form">
+            <p class="hint">Enter your eticket.railway.gov.bd credentials.</p>
+            <div class="cred-fields">
+              <div class="input"><i class="fa-solid fa-phone"></i>
+                <input type="tel" id="cred-mobile" placeholder="Mobile number (01XXXXXXXXX)" autocomplete="tel">
+              </div>
+              <div class="input"><i class="fa-solid fa-lock"></i>
+                <input type="password" id="cred-password" placeholder="Password" autocomplete="current-password">
+              </div>
+            </div>
+            <div class="cf-turnstile" id="cred-turnstile"
+                 data-sitekey="0x4AAAAABS5VTjZ90pUxRuXR"
+                 data-theme="auto"
+                 data-size="flexible"></div>
+            <button type="button" class="btn cred-btn" id="cred-login-btn">
+              <i class="fa-solid fa-right-to-bracket"></i> Login
+            </button>
+            <p class="cred-error alert" id="cred-error" hidden></p>
+          </div>
+        </div>
       </details>
 
       <p class="alert" id="form-error" hidden></p>
@@ -243,6 +288,8 @@
     </div>
   </form>
 </dialog>
+
+<div class="toast-container" id="toast-container" aria-live="polite"></div>
 
 <div class="loading" id="loading" hidden>
   <div class="spinner"></div>

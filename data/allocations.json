@@ -634,10 +634,11 @@
   },
   "791": {
     "train": "BANALATA EXPRESS (791)",
-    "updated": "2026-10-04",
+    "updated": "2026-10-05",
     "allocation": {
-      "Dhaka": {"Biman Bandar": true, "Rajshahi": true},
-      "Biman Bandar": {"Rajshahi": true},
+      "Dhaka": {"Biman Bandar": true, "Rajshahi": true, "Chapainawabganj": true},
+      "Biman Bandar": {"Rajshahi": true, "Chapainawabganj": false},
+      "Rajshahi": {"Chapainawabganj": true},
       "biman bandar": {"rajshahi": true},
       "dhaka": {"biman bandar": true, "rajshahi": true}
     }

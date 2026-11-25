@@ -330,6 +330,54 @@ def index():
     return (route_search if ctx["mode"] == "route" else train_search)(form, creds, ctx)
 
 
+@app.post("/api/login")
+def api_login():
+    data = request.get_json(silent=True) or {}
+    mobile = (data.get("mobile_number") or "").strip()
+    password = (data.get("password") or "").strip()
+    if not mobile or not password:
+        return jsonify(error="Mobile number and password are required."), 400
+    try:
+        s = shohoz._session()
+        payload = {"mobile_number": mobile, "password": password}
+        cft = (data.get("cft_response") or "").strip()
+        if cft:
+            payload["cft_response"] = cft
+        resp = s.post(
+            "https://railspaapi.shohoz.com/v1.0/web/auth/sign-in",
+            json=payload,
+            headers={"Content-Type": "application/json"},
+            timeout=15,
+        )
+    except Exception as e:
+        return jsonify(error=f"Network error: {e}"), 502
+    if not resp.ok:
+        try:
+            msgs = resp.json().get("error", {}).get("messages", [])
+            msg = (" ".join(msgs) if isinstance(msgs, list)
+                   else " ".join(str(v) for v in msgs.values()) if isinstance(msgs, dict) else "")
+        except Exception:
+            msg = ""
+        return jsonify(error=msg or f"Login failed (HTTP {resp.status_code})"), resp.status_code
+    try:
+        body = resp.json()
+        d = body.get("data") or body
+        token = d.get("token") or d.get("access_token") or ""
+        device_id = d.get("device_id") or d.get("deviceId") or ""
+        device_key = d.get("device_key") or d.get("deviceKey") or ""
+        name = (d.get("name") or d.get("full_name") or d.get("username") or mobile)
+    except Exception:
+        return jsonify(error="Unexpected response from login API."), 502
+    lines = []
+    if token:
+        lines.append(f"Authorization: {token if token.lower().startswith('bearer') else 'Bearer ' + token}")
+    if device_id:
+        lines.append(f"X-Device-Id: {device_id}")
+    if device_key:
+        lines.append(f"X-Device-Key: {device_key}")
+    return jsonify(token="\n".join(lines), name=name)
+
+
 @app.route("/job/<job_id>")
 def job_status(job_id):
     job = JOBS.get(job_id) or abort(404)
